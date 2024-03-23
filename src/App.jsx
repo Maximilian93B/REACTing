@@ -1,16 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-
+import React from 'react';
+import { Routes, Route } from "react-router-dom";
+import AboutMe from "./components/About";
+import Projects from "./components/Projects";
+import Contact from "./components/Contact";
+import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <h1 className="text-3xl font-bold underline">
-    Hello world!
-  </h1>
-  )
+    <>
+      <Navigation /> { /*Navigation*/ }
+      <Routes>   
+        <Route path="/" element={<AboutMe />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/contact" element={<Contact />} />
+        {/* Add More Routes as needed */}
+      </Routes>
+      <Footer /> {/* Footer Component */}
+    </>
+  );
 }
 
-export default App
+export default App;
