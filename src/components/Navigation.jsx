@@ -29,7 +29,7 @@ animation: AnimationName 16s ease infinite;
   justify-content: space-between;
   align-items: center;
   font-family: 'Orbitron', sans-serif;
-  border-radius: 10px;
+  border-radius: 2px;
 `;
 
 // Styled NavLink with neon effect
@@ -40,7 +40,7 @@ const NavLink = styled(RouterNavLink)`
   letter-spacing: 1px;
   
 `;
-/*
+
 const NeonIndicator = styled.span `
 height: 3px;
   width: 100%;
@@ -49,7 +49,7 @@ height: 3px;
   margin-top: 5px;
   box-shadow: 0 0 8px #e60073, 0 0 12px #e60073, 0 0 24px #e60073, 0 0 48px #e60073;
 `;
-*/
+
 const activeStyle = ({ isActive }) => isActive ? { color: '#fff', animation: 'none' } : {};
 
 const Navigation = () => {
