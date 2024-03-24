@@ -56,7 +56,7 @@ const Navigation = () => {
     return (
         <Nav>
             <NavLink to="/about" style={activeStyle}>About Me</NavLink>
-            <NavLink to="/portfolio" style={activeStyle}>Portfolio</NavLink>
+            <NavLink to="/projects" style={activeStyle}>Projects</NavLink>
             <NavLink to="/contact" style={activeStyle}>Contact</NavLink>
             <NavLink to="/resume" style={activeStyle}>Resume</NavLink>
         </Nav>
