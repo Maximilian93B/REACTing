@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import AvatarImg from '../assets/GithubPIc - Copy.jpg'
 
 // Styled components for About Section 
 
  // Usinh Flex for a side-by-sde layout
-const Section = styled.section `
+const Section = styled.section`
     color: white;
     background-color: #121212; // Keep the cyberpunk theme dark background
     padding: 40px;
@@ -41,11 +42,10 @@ const ContentWrapper = styled.div`
   }
   `;
 
-  const Avatar = styled.img `
+  const Avatar = styled.img`
   width: 250px; // Adjust size as needed
   height: 250px;
-  border-radius: 50%; // Circular avatar
-  margin-left: 20px; // Space between content and avatar
+ 
 
   @media (max-width: 768px) {
     margin-left: 0;
@@ -54,7 +54,7 @@ const ContentWrapper = styled.div`
   `
 
 
-const Heading = styled.h1 ` 
+const Heading = styled.h1` 
     font-size: 2.5rem;
     margin-bottomL 20px; 
 
@@ -78,7 +78,7 @@ const About = () => {
                         captivate and engage. Dive into my portfolio to explore the projects that I/ve brought to life.
                     </Paragraph> 
                     </ContentWrapper>
-                    <Avatar src="path_to_your_avatar.jpg" alt="Your Name" />  
+                    <Avatar src={AvatarImg} alt="Your Name" />  
             </ContentContainer>     
         </Section>
     )
