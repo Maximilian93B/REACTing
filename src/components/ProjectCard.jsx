@@ -4,21 +4,28 @@ import styled from 'styled-components';
 // this file defines structure and styles for the Project Cards
 
 const Card = styled.div`
-  background-color: #222;
-  color: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  width: 300px; // Example fixed width
-  height: 400px; // Example fixed height
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
-  transition: transform 0.2s ease-in-out;
-  display: flex;
-  flex-direction: column;
+background-color: #222; // Dark backgrounds are great for contrast
+color: #fff;
+border-radius: 0; // Pixel art often lacks smooth curves
+overflow: hidden;
+width: 300px; // Consider adjusting based on your layout
+height: 400px;
+padding: 20px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // A more subtle shadow
+transition: transform 0.2s ease-in-out;
+border: 3px solid #e60073; // Neon-like border for emphasis
+display: flex;
+flex-direction: column;
+font-family: 'Press Start 2P', cursive; // Google Fonts pixelated font
 
-  &:hover {
-    transform: scale(1.05);
-  }
+&:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 0 10px #e60073,
+    0 0 20px #e60073,
+    0 0 40px #e60073,
+    0 0 80px #e60073; // Neon pink glow effect
+}
 `;
 
 const CardImage = styled.img`
@@ -30,32 +37,44 @@ width: 100%;
 `;
 
 const CardContent = styled.div`
-  flex: 1; // Takes up the available space
-  overflow: auto; // Allows scrolling for overflow content
-  padding: 8px 0; // Example padding, adjust as needed
-  &::-webkit-scrollbar {
-    display: none;
-  }
+flex: 1;
+overflow: auto;
+padding: 8px 0;
+background: repeating-linear-gradient(
+  0deg,
+  rgba(255, 255, 255, 0.02),
+  rgba(255, 255, 255, 0.02) 1px,
+  transparent 1px,
+  transparent 2px
+); // Simulates the scan lines of a CRT monitor
+
+&::-webkit-scrollbar {
+  display: none; // Keeps the scrollbar hidden
+}
 `;
 
 const CardTitle = styled.h3`
 margin: 0;
-font-size: 1.5rem;
+  font-size: 1.2rem; // Pixel fonts can be hard to read at smaller sizes
+  color: #00ff00;
 `;
 
 const CardDescription = styled.p` 
-font-size: 1rem;
+font-size: 0.8rem; // Smaller text, but ensure readability
+  line-height: 1.5;
+  text-shadow: 1px 1px 0 #000; // Adds a pixel shadow for depth
 `;
 
 const CardLink = styled.a`
 display: inline-block;
-margin-top: 8px;
-color: #e60073; // Neon accent
-text-decoration: none;
-
-&:hover {
-  text-decoration: underline;
-}
+  margin-top: 8px;
+  color: #e60073; // Neon accent remains consistent
+  font-size: 0.8rem; // Consistent with the pixel theme
+  text-decoration: underline dotted #e60073;
+  
+  &:hover {
+    color: #ff00ff; // Change color on hover for interaction feedback
+  }
 `;
 
 const CardFooter = styled.div`

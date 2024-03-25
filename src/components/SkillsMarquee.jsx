@@ -11,8 +11,6 @@ const scroll = keyframes`
     }
 `;
 
-
-
 const Marquee = styled.div`
     width: 100%;
     overflow: hidden;
@@ -43,7 +41,7 @@ const SkillIcon = styled.li`
 
 
 const SkillsMarquee = () => {
-    // set state to handle slowing down Marquee to view modals for skills
+    // set state to handle slowing down Marquee on mouseEnter and mouseLeae
     const [duration, setDuration] = useState('25s');
 
     return(
