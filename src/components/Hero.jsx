@@ -14,6 +14,7 @@ const HeroContainer = styled.section`
     color: #fff;
     text-align: center;
     position: relative;
+    overflow: hidden;
 `;
 
 const HeroContent = styled.div`
@@ -51,8 +52,9 @@ const Hero = () => {
     return (
         <Parallax strength={200} bgImage={BackgroundImage} bgImageStyle={{ 
             // Ensures the image covers the available space, centered, and without repeating
-            height: '100vh',
-            backgroundSize: 'cover',
+            width: '100%',
+            height: 'auto',
+            backgroundSize: 'auto',
             backgroundPosition: 'center center',
             backgroundRepeat: 'no-repeat',
           }}>

@@ -83,9 +83,9 @@ const Contact = () => {
 
       <Parallax strength={300} bgImage={BackgroundImage} bgImageStyle={{ 
         // Ensures the image covers the available space, centered, and without repeating
-        height: '100vh',
+        height: 'auto',
         width: '100vw',
-        backgroundSize: 'cover',
+        backgroundSize: 'auto',
         backgroundPosition: 'center center',
         backgroundRepeat: 'no-repeat',
       }}>
