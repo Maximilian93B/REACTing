@@ -18,9 +18,12 @@ height: 100vh;
     color: #fff;
     text-align: center;
     position: relative;
+    gap: 20px;
     @media (max-width: 768px) {
-        justify-content: center; // Center content on smaller screens
+        justify-content: center;
         text-align: center;
+        /* You might want to adjust the gap for smaller screens */
+        gap: 10px;
       }
 `;
 

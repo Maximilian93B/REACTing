@@ -9,7 +9,7 @@ color: #fff;
 border-radius: 0; // Pixel art often lacks smooth curves
 overflow: hidden;
 width: 300px; // Consider adjusting based on your layout
-height: 400px;
+height: 450px;
 padding: 20px;
 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // A more subtle shadow
 transition: transform 0.2s ease-in-out;
