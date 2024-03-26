@@ -1,19 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import AvatarImg from '../assets/GithubPIc - Copy.jpg'
-
+import { Parallax } from 'react-parallax';
+import BackgroundImage from '../assets/svg/ReactAboutme.svg';
 // Styled components for About Section 
 
  // Usinh Flex for a side-by-sde layout
 const Section = styled.section`
-    color: white;
-    background-color: #121212; // Keep the cyberpunk theme dark background
-    padding: 40px;
-    min-height: 100vh; // Full viewport height
+    height: 100vh;
     display: flex;
-    align-items: center; // Vertically center the content
-    justify-content: center; // Align content to the left
-    text-align: left; // Ensure text aligns to the left
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    position: relative;
     @media (max-width: 768px) {
         justify-content: center; // Center content on smaller screens
         text-align: center;
@@ -42,16 +41,6 @@ const ContentWrapper = styled.div`
   }
   `;
 
-  const Avatar = styled.img`
-  width: 250px; // Adjust size as needed
-  height: 250px;
- 
-
-  @media (max-width: 768px) {
-    margin-left: 0;
-    margin-bottom: 20px; // Space between avatar and text content on small screens
-  }
-  `
 
 
 const Heading = styled.h1` 
@@ -67,6 +56,13 @@ font-size: 1.2rem;
 const About = () => {
 
     return (
+      <Parallax strength={200} bgImage={BackgroundImage} bgImageStyle={{ 
+        // Ensures the image covers the available space, centered, and without repeating
+        height: '100vh',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center',
+        backgroundRepeat: 'no-repeat',
+      }}>
         <Section>
             <ContentContainer>
                 <ContentWrapper>
@@ -78,9 +74,9 @@ const About = () => {
                         captivate and engage. Dive into my portfolio to explore the projects that I/ve brought to life.
                     </Paragraph> 
                     </ContentWrapper>
-                    <Avatar src={AvatarImg} alt="Your Name" />  
             </ContentContainer>     
         </Section>
+        </Parallax>
     )
 
 }

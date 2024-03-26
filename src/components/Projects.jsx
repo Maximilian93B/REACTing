@@ -5,23 +5,23 @@ import styled from 'styled-components';
 import ProjectCard from './ProjectCard';
 import ProjectImage1 from '../assets/DnDevs.png';
 import ProjectImage2 from '../assets/NerdHerdHR.png';
+import { Parallax } from 'react-parallax';
+import BackgroundImage from '../assets/svg/ReactProjects.svg';
+
 
 // Styles for Container to hold cards 
 const ProjectsContainer = styled.div`
-display: flex; // Use flexbox to layout children horizontally
-flex-wrap: wrap; // Allow items to wrap to next line if the container is too narrow
-gap: 20px; // Space between items
-padding: 20px; // Padding around the entire container
-justify-content: center; // Center the items horizontally
-align-items: center;
-min-height: 100vh; 
-&.global-gradient-background {
-    // Inherits styles from .global-gradient-background class
-  }
-@media (max-width: 768px) {
-    flex-direction: column; // Stack the cards vertically on smaller screens
-    align-items: center; // Center the cards vertically
-  }
+height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    @media (max-width: 768px) {
+        justify-content: center; // Center content on smaller screens
+        text-align: center;
+      }
 `;
 
 // Project Data 
@@ -57,7 +57,7 @@ const projects = [
         projectUrl: "https://projectone.com",
         repoUrl: "https://github.com/yourusername/projectone",
     },
-    // Add More projects 
+     
 ];
 
 
@@ -65,11 +65,20 @@ const projects = [
 const ProjectsSection = () => {
     console.log('Rendering ProjectsSection');
     return (
-        <ProjectsContainer className="global-gradient-background">
+        <Parallax strength={200} bgImage={BackgroundImage} bgImageStyle={{ 
+            // Ensures the image covers the available space, centered, and without repeating
+            height: '100vh',
+           
+            backgroundSize: 'cover',
+            backgroundPosition: 'center center',
+            backgroundRepeat: 'no-repeat',
+          }}>
+        <ProjectsContainer>
             {projects.map((project, index) => (
                 <ProjectCard key={index} {...project} />
             ))}
         </ProjectsContainer>
+        </Parallax>
     );
 };
 
