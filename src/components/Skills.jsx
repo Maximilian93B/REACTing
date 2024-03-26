@@ -5,6 +5,8 @@ import { Parallax } from 'react-parallax';
 import BackgroundImage from '../assets/svg/ReactSkills.svg';
 import TheButton from './Button';
 
+
+// Section to contain Skills 
 const SkillsContainer = styled.section`
 height: 100vh;
     display: flex;
@@ -15,6 +17,8 @@ height: 100vh;
     position: relative;
 `;
 
+
+// Titel Styles
 const Title = styled.h2`
 margin-bottom: 2rem; 
 font-size: 2.5rem;
@@ -22,6 +26,8 @@ color: #e60073;
 font-family: 'Press Start 2P', cursive;
 `;
 
+
+// Might get rid of Pargraph now that Modal is in place
 const Paragraph = styled.p` 
 font-size: 1.1rem;
   color: #c5c6c7; // Light grey for readability
@@ -29,7 +35,7 @@ font-size: 1.1rem;
   margin-bottom: 2rem; // Adds some space before the marquee
 `;
 
-
+// Contain 'TheButton' So we can control where it goes
 const ButtonContainer = styled.div`
     display: flex;
     justify-content: ;
@@ -37,6 +43,13 @@ const ButtonContainer = styled.div`
     padding: 20px; 
 `;
 
+//Skills Componnent
+//Parallax scrolling 
+// Include Containers
+//Include Title
+// Include Para
+// Import SkillsMarquee 
+// Import TheButton
 
 const Skills = () => {
     return(

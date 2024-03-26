@@ -19,8 +19,8 @@ const Marquee = styled.div`
     border-radius: 8px;
 `;
 
-
-const MarqueeInnerContainer = styled.div`
+// Needed to add extra container to be able to control the Marquee content more precisisely 
+const InnerMarqueeContainer = styled.div`
   display: flex;
   width: max-content;
   animation: ${scroll} ${props => props.duration} linear infinite;
@@ -44,11 +44,16 @@ const SkillsMarquee = () => {
     // set state to handle slowing down Marquee on mouseEnter and mouseLeae
     const [duration, setDuration] = useState('25s');
 
+    // Return Marquee with onMoudr logic and params 
+    // Include:
+    //InnerContainer
+    // Content
+    // Skill Icon 
     return(
     <Marquee 
         onMouseEnter={() => setDuration('120s')}
         onMouseLeave = {() => setDuration('60s')}>
-        <MarqueeInnerContainer duration={duration}>
+        <InnerMarqueeContainer duration={duration}>
             <MarqueeContent>
                 <SkillIcon><i className="fab fa-github"></i></SkillIcon>
                 <SkillIcon><i className="fab fa-codepen"></i></SkillIcon>
@@ -58,7 +63,7 @@ const SkillsMarquee = () => {
                 <SkillIcon><i className="fab fa-codepen"></i></SkillIcon>
                 <SkillIcon><i className="fab fa-free-code-camp"></i></SkillIcon>
             </MarqueeContent>
-        </MarqueeInnerContainer>
+        </InnerMarqueeContainer>
     </Marquee>
     );
 };

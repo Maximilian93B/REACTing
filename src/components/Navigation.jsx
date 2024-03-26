@@ -1,8 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import { NavLink as RouterNavLink } from 'react-router-dom';
 
-// Neon glow animation
-
+// Brand logo on Left side of Nav
 const Brand = styled.a`
   color: #e60073; // Neon effect for the brand as well
   font-weight: 700;
@@ -11,7 +10,10 @@ const Brand = styled.a`
 `;
 
 
-// Styled navigation bar with dark background and futuristic font
+// Styles for Nav Container 
+// Sticky Nav Bar 
+// Simple styles
+// Use PS2P font --> pixelated theme 
 const Nav = styled.nav`
   position: sticky; 
   top: 0; 
@@ -23,14 +25,14 @@ const Nav = styled.nav`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  font-family: 'Press Start 2P', sans-serif; /* Updated font */
+  font-family: 'Press Start 2P', sans-serif; 
   border-radius: 2px;
   @media (max-width: 768px) {
     margin: 10px 5px;
   }
 `;
 
-
+// Decalre flicker animation
 const flicker = keyframes `
 0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
   ext-shadow:
@@ -51,7 +53,6 @@ opacity: 1;
 `;
 
 
-
 // Styled NavLink with neon effect
 const NavLink = styled(RouterNavLink)`
 color: #e60073; // Neon pink
@@ -61,6 +62,7 @@ letter-spacing: 0; /* Adjusted for pixel font */
 margin: 0 20px;
 
 &:hover {
+  /* Call flicker animation */
   animation: ${flicker} 1.5s infinite;
 }
 `;
@@ -72,11 +74,11 @@ const activeStyle = ({ isActive }) => isActive ? { color: '#fff', animation: 'no
 const Navigation = () => {
     return (
         <Nav>
-          <Brand href= "/">MDBDev</Brand>{/* Replace MDBDev with your logo or brand name */}
+          <Brand href= "/">MDBDev</Brand>
             <NavLink to="/about" style={activeStyle}>About Me</NavLink>
             <NavLink to="/projects" style={activeStyle}>Projects</NavLink>
-            <NavLink to="/contact" style={activeStyle}>Contact</NavLink>
             <NavLink to="/skills" style={activeStyle}>Skills</NavLink>
+            <NavLink to="/contact" style={activeStyle}>Contact</NavLink>
         </Nav>
     );
 }

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useLocation } from 'react-router-dom';
 
-
+// Retro Button 
+// PS2P Font 
 const RetroButton = styled.button`
   font-family: 'Press Start 2P', cursive; // Assuming you've imported this font
   background-color: #e60073; // Vibrant neon color
@@ -25,7 +26,8 @@ const RetroButton = styled.button`
   }
 `;
 
-
+// Modal for onClick
+// MOdal will display content based on route
 const ModalBackground = styled.div`
   position: fixed;
   top: 0;
@@ -39,7 +41,7 @@ const ModalBackground = styled.div`
   z-index: 1000; // Ensure it's on top of other content
 `;
 
-
+// Handle styles for content inside Modal 
 const ModalContent = styled.div`
   background-color: #000;
   padding: 20px;
@@ -55,16 +57,19 @@ const ModalContent = styled.div`
 // && condiational used to check if state is true 
 // If true render modal 
 // toggeModal onClick = close modal 
-
 const TheButton = () => {
   const [OpenModal, setOpenModal] = useState(false);
   const toggleModal = () => setOpenModal(!OpenModal);
-  const location = useLocation();
-
-
+  const location = useLocation(); 
   // Determine the location useLocation()
-  // Define content served based on location 
-
+  // Define content served based on location
+  // Set Switch (location.pathname)
+  /*
+  {
+    case 'The location of the user'
+    return 'The content served based on location'
+  }
+  */
   const getModalContent = () => {
     switch (location.pathname) {
       case '/about':
@@ -79,15 +84,14 @@ const TheButton = () => {
         return "Welcome to the Future";
     }
   };
-
-  // Returns JSX with Button logic + ModalContent
+  // Returns JSX with Button logic + ModalContent with conditonal 
 return(
     <>
         <RetroButton onClick={toggleModal}>Click Me</RetroButton>
       {OpenModal && (
         <ModalBackground onClick={toggleModal}>
           <ModalContent onClick={(e) => e.stopPropagation()}> {/* Prevent modal from closing when clicked inside */}
-            <p>{getModalContent()}</p> {/* Correctly call getModalContent as a function */}
+            <p>{getModalContent()}</p> {/* This is where i ran into the problem of not calling getModalContent as a function ! */}
             <RetroButton onClick={toggleModal}>Close</RetroButton>
           </ModalContent>
         </ModalBackground>

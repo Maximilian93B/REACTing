@@ -2,12 +2,16 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 
+// Footer animation 
 const animateBackground = keyframes`
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 `;
 
+// Sticky Footer
+// Gradient background 
+// background Animation for effects 
 const FooterContainer = styled.footer`
   position: sticky; 
   bottom: 0; 
@@ -24,12 +28,11 @@ const FooterContainer = styled.footer`
   align-items: center;
   font-family: 'Press Start 2P', sans-serif; /* Pixel art font */
   }
-`;
-
+`
 
 const FooterText = styled.p`
   color: #e60073; // Matching neon color for consistency
-  font-size: 1rem; // Adjust based on your design
+  font-size: 1rem; 
 `;
 
 const FooterLinks = styled.div`
@@ -43,7 +46,7 @@ const Link = styled.a`
   color: #e60073; // Neon color for links
   margin: 0 10px; // Space out the links
   text-decoration: none;
-  font-size: 0.8rem; // Smaller font size for pixel art theme
+  font-size: 0.8rem; 
 
   &:hover {
     animation: glow 1.5s infinite alternate;
@@ -61,11 +64,18 @@ const glow = keyframes`
 
 
 
+// Footer Compononent with styes 
+// inlcude Containers 
+// incldue Text
+// incldue Links 
+// export 
+
 const Footer = () => {
   return (
     <FooterContainer>
       <FooterText>©{new Date().getFullYear()} MdbDev.All rights reserved</FooterText>
-      <FooterLinks>
+      <FooterLinks className={glow}>
+        <Link>{/* Links here  */}</Link>
       </FooterLinks>
     </FooterContainer>
   );
