@@ -74,7 +74,7 @@ const Footer = () => {
   return (
     <FooterContainer>
       <FooterText>©{new Date().getFullYear()} MdbDev.All rights reserved</FooterText>
-      <FooterLinks className={glow}>
+      <FooterLinks>
         <Link>{/* Links here  */}</Link>
       </FooterLinks>
     </FooterContainer>

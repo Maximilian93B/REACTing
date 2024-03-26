@@ -15,12 +15,15 @@ const HeroContainer = styled.section`
     text-align: center;
     position: relative;
     overflow: hidden;
+    color: black;
+    font-family: 'Press Start 2P', cursive;
 `;
 
 const HeroContent = styled.div`
     max-width: 600px;
     padding: 20px;
-`
+    margin-top: 100px;
+`; 
 
 const HeroTitle = styled.h1`
     font-size: 2.5rem;
