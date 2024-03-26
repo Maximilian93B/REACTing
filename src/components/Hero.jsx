@@ -1,5 +1,9 @@
 import React from 'react'
 import styled from 'styled-components';
+import { Parallax } from 'react-parallax';
+import BackgroundImage from '../assets/svg/ReactingHeroPage.svg';
+
+
 
 // Hero Section Container Styles 
 const HeroContainer = styled.section`
@@ -7,7 +11,6 @@ const HeroContainer = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
     color: #fff;
     text-align: center;
     position: relative;
@@ -46,6 +49,13 @@ display: inline-block;
 
 const Hero = () => {
     return (
+        <Parallax strength={200} bgImage={BackgroundImage} bgImageStyle={{ 
+            // Ensures the image covers the available space, centered, and without repeating
+            height: '100vh',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center center',
+            backgroundRepeat: 'no-repeat',
+          }}>
         <HeroContainer>
             <HeroContent>
                 <HeroTitle>Welcome to the Future</HeroTitle>
@@ -53,6 +63,7 @@ const Hero = () => {
                 <HeroCTA href="#projects">View Projects</HeroCTA>
             </HeroContent>
         </HeroContainer>
+        </Parallax>
     );
 }; 
 

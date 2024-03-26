@@ -1,19 +1,30 @@
 import React from 'react'; 
 import styled from 'styled-components';
+import { Parallax } from 'react-parallax';
+import BackgroundImage from '../assets/svg/Contact.svg';
 
 
 const ContactContainer = styled.section`
-  background-color: #121212; /* Dark theme background */
   padding: 40px;
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100vw;
   min-height: 100vh;
   @media (max-width: 768px) {
     padding: 20px;
   }
 `;
+
+const FormContainer = styled.div`
+  background-color: rgba(0, 0, 0, 0.7); // Semi-transparent black background
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: inline-block; // Keeps the container size as per its content
+`;
+
 
 const Form = styled.form`
   display: flex;
@@ -68,14 +79,28 @@ const SubmitButton = styled.button`
 
 const Contact = () => {
     return (
-        <ContactContainer>
-            <Form>
-                <Input type="text" placeholder="Your Name" />
-                <Input type = "email" placeholder='Your Email' />
-                <TextArea placeholder='Your Mesage' />
-                <SubmitButton type="submit">Send Message</SubmitButton>
-            </Form>
-        </ContactContainer>
+
+
+      <Parallax strength={300} bgImage={BackgroundImage} bgImageStyle={{ 
+        // Ensures the image covers the available space, centered, and without repeating
+        height: '100vh',
+        width: '100vw',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center',
+        backgroundRepeat: 'no-repeat',
+      }}>
+          <ContactContainer>
+            <FormContainer>
+              <Form>
+                  <Input type="text" placeholder="Your Name" />
+                  <Input type = "email" placeholder='Your Email' />
+                  <TextArea placeholder='Your Mesage' />
+                  <SubmitButton type="submit">Send Message</SubmitButton>
+              </Form>
+              </FormContainer>
+          </ContactContainer>
+        </Parallax>
+  
 
     )
 }

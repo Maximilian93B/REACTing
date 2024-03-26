@@ -57,8 +57,8 @@ const Navigation = () => {
           <Brand href= "/">MDBDev</Brand>{/* Replace MDBDev with your logo or brand name */}
             <NavLink to="/about" style={activeStyle}>About Me</NavLink>
             <NavLink to="/projects" style={activeStyle}>Projects</NavLink>
-            <NavLink to="/contact" style={activeStyle}>Contact</NavLink>
             <NavLink to="/skills" style={activeStyle}>Skills</NavLink>
+            <NavLink to="/contact" style={activeStyle}>Contact</NavLink>
         </Nav>
     );
 }

@@ -1,14 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import SkillsMarquee from './SkillsMarquee';
+import { Parallax } from 'react-parallax';
+import BackgroundImage from '../assets/svg/ReactSkills.svg';
 
 
 const SkillsContainer = styled.section`
-background-color: #121212; // Dark background for the section
-padding: 50px 20px;
-text-align: center;
-border-radius: 8px; // Optional: adds a modern touch
-min-height: 100vh; // Makes the container fill the viewport height
+height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    position: relative;
 `;
 
 const Title = styled.h2`
@@ -27,6 +31,13 @@ font-size: 1.1rem;
 
 const Skills = () => {
     return(
+        <Parallax strength={200} bgImage={BackgroundImage} bgImageStyle={{ 
+            // Ensures the image covers the available space, centered, and without repeating
+            height: '100vh',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center center',
+            backgroundRepeat: 'no-repeat',
+          }}>
     <SkillsContainer>
         <Title>My Skills</Title>
             <Paragraph>
@@ -34,6 +45,7 @@ const Skills = () => {
             </Paragraph>
         <SkillsMarquee />
     </SkillsContainer>
+    </Parallax>
     );
 };
 

@@ -17,8 +17,8 @@ function App() {
         <Route path="/" element={<Hero/>} />
         <Route path ="/about" element = {<About/>} /> 
         <Route path="/projects" element={<ProjectsSection />} />
-        <Route path="/contact" element={<Contact />} />
         <Route path="/skills" element={<Skills />} /> {/* Check this line */}
+        <Route path="/contact" element={<Contact />} />
         {/* Add More Routes as needed */}
       </Routes>
       <Footer /> 
