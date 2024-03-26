@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import { Parallax } from 'react-parallax';
 import BackgroundImage from '../assets/svg/ReactingHeroPage.svg';
-
+import TheButton from './Button';
 
 
 // Hero Section Container Styles 
@@ -32,22 +32,6 @@ const HeroSubheading = styled.p`
     margin-bottom: 40px;
 `;
 
-
-// Hero Call to Action 
-const HeroCTA = styled.a`
-display: inline-block;
-  background: #e60073;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  &:hover {
-    background: #c3005d;
-  }
-`;
-
-
 const Hero = () => {
     return (
         <Parallax strength={200} bgImage={BackgroundImage} bgImageStyle={{ 
@@ -62,7 +46,7 @@ const Hero = () => {
             <HeroContent>
                 <HeroTitle>Welcome to the Future</HeroTitle>
                 <HeroSubheading>Explore my Projects and Journey though tech</HeroSubheading>
-                <HeroCTA href="#projects">View Projects</HeroCTA>
+                <TheButton /> {/* Button with Modal Cotent per location */}
             </HeroContent>
         </HeroContainer>
         </Parallax>

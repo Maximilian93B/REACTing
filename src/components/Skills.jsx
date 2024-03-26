@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import SkillsMarquee from './SkillsMarquee';
 import { Parallax } from 'react-parallax';
 import BackgroundImage from '../assets/svg/ReactSkills.svg';
-
+import TheButton from './Button';
 
 const SkillsContainer = styled.section`
 height: 100vh;
@@ -19,15 +19,24 @@ const Title = styled.h2`
 margin-bottom: 2rem; 
 font-size: 2.5rem;
 color: #e60073;
-font-family: 'Orbitron', sans-serif;
+font-family: 'Press Start 2P', cursive;
 `;
 
 const Paragraph = styled.p` 
 font-size: 1.1rem;
   color: #c5c6c7; // Light grey for readability
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Press Start 2P', cursive;
   margin-bottom: 2rem; // Adds some space before the marquee
 `;
+
+
+const ButtonContainer = styled.div`
+    display: flex;
+    justify-content: ;
+    align-items: center;
+    padding: 20px; 
+`;
+
 
 const Skills = () => {
     return(
@@ -42,9 +51,11 @@ const Skills = () => {
     <SkillsContainer>
         <Title>My Skills</Title>
             <Paragraph>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero, culpa cum cumque minima consequuntur quae deserunt rem consectetur voluptates quo odit nulla dolorum laborum tenetur voluptatum reprehenderit. Reprehenderit necessitatibus quia impedit incidunt obcaecati ratione perferendis nulla dicta sit accusamus consequuntur, reiciendis quasi molestiae eos quisquam et deleniti dignissimos, magnam natus.
             </Paragraph>
         <SkillsMarquee />
+        <ButtonContainer>
+        <TheButton>Click Me</TheButton>
+        </ButtonContainer>
     </SkillsContainer>
     </Parallax>
     );

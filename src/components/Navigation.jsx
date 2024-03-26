@@ -13,6 +13,9 @@ const Brand = styled.a`
 
 // Styled navigation bar with dark background and futuristic font
 const Nav = styled.nav`
+  position: sticky; 
+  top: 0; 
+  z-index: 1; 
   background: linear-gradient(270deg, #0f0c29, #302b63, #24243e);
   background-size: 600% 600%;
   animation: AnimationName 16s ease infinite;

@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Parallax } from 'react-parallax';
 import BackgroundImage from '../assets/svg/ReactAboutme.svg';
+import TheButton from './Button';
+
 // Styled components for About Section 
 
  // Usinh Flex for a side-by-sde layout
@@ -47,7 +49,8 @@ const ContentWrapper = styled.div`
 const Heading = styled.h1` 
     font-size: 2.5rem;
     margin-bottomL 20px; 
-
+    font-family: 'Press Start 2P', cursive;
+    color: black; 
 `;
 
 const Paragraph = styled.p` 
@@ -70,11 +73,9 @@ const About = () => {
             <ContentContainer>
                 <ContentWrapper>
                     <Heading>About Me</Heading>
+                    <TheButton /> {/* Button with Modal Cotent per location */}
                     <Paragraph>
-                        I/m a web developer with a passion for creating immersive digital experiences. 
-                        My journey into the world of development is driven by a love for technology and design, 
-                        blending the two to craft websites and applications that not only perform well but also 
-                        captivate and engage. Dive into my portfolio to explore the projects that I/ve brought to life.
+                      
                     </Paragraph> 
                     </ContentWrapper>
             </ContentContainer>     

@@ -15,7 +15,7 @@ const Marquee = styled.div`
     width: 100%;
     overflow: hidden;
     white-space: nowrap;
-    background-color:#A9A9A9;
+    background-color: transparent;
     border-radius: 8px;
 `;
 
@@ -33,7 +33,7 @@ const MarqueeContent = styled.ul`
 
 const SkillIcon = styled.li`
     font-size: 2rem; // Adjust if needed
-    color: #e60073;
+    color: white;
     display: inline-flex;
     margin-right: 2rem;
 `;

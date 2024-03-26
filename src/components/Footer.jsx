@@ -9,10 +9,13 @@ const animateBackground = keyframes`
 `;
 
 const FooterContainer = styled.footer`
-background: linear-gradient(270deg, #0f0c29, #302b63, #24243e);
+  position: sticky; 
+  bottom: 0; 
+  z-index: 2; 
+  background: linear-gradient(270deg, #0f0c29, #302b63, #24243e);
   background-size: 600% 600%;
   animation: ${animateBackground} 16s ease infinite;
-  padding: 25px;
+  padding: 5px;
   border-radius: 2px;
   text-align: center;
   display: flex;
@@ -30,7 +33,7 @@ const FooterText = styled.p`
 `;
 
 const FooterLinks = styled.div`
-  margin: 20px 0;
+  margin: 10px 0;
   display: flex; // To layout links horizontally
   flex-wrap: wrap; // Allow wrapping for multiple links
   justify-content: center; // Center links for better aesthetics
@@ -63,7 +66,6 @@ const Footer = () => {
     <FooterContainer>
       <FooterText>©{new Date().getFullYear()} MdbDev.All rights reserved</FooterText>
       <FooterLinks>
-
       </FooterLinks>
     </FooterContainer>
   );
