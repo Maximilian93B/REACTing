@@ -18,36 +18,51 @@ const Nav = styled.nav`
   animation: AnimationName 16s ease infinite;
   padding: 25px;
   display: flex;
-  justify-content: flex-end; /* Adjusted to align links to the right */
+  justify-content: flex-end;
   align-items: center;
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Press Start 2P', sans-serif; /* Updated font */
   border-radius: 2px;
   @media (max-width: 768px) {
     margin: 10px 5px;
+  }
 `;
+
+
+const flicker = keyframes `
+0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+  ext-shadow:
+  0 0 4px #fff,
+  0 0 11px #e60073,
+  0 0 19px #e60073,
+  0 0 40px #e60073,
+  0 0 80px #e60073,
+  0 0 90px #e60073,
+  0 0 100px #e60073,
+  0 0 150px #e60073;
+opacity: 1;
+}
+20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+  text-shadow: none;
+    opacity: 0.5;
+}
+`;
+
 
 
 // Styled NavLink with neon effect
 const NavLink = styled(RouterNavLink)`
-  color: #e60073; // Neon pink
-  text-decoration: none;
-  font-weight: 500;
-  letter-spacing: 1px;
-  margin: 0 20px;
-  
-  &:hover {
-    text-decoration: underline;
-  }
+color: #e60073; // Neon pink
+text-decoration: none;
+font-weight: 500;
+letter-spacing: 0; /* Adjusted for pixel font */
+margin: 0 20px;
+
+&:hover {
+  animation: ${flicker} 1.5s infinite;
+}
 `;
 
-const NeonIndicator = styled.span `
-height: 3px;
-  width: 100%;
-  background: #e60073;
-  display: block;
-  margin-top: 5px;
-  box-shadow: 0 0 8px #e60073, 0 0 12px #e60073, 0 0 24px #e60073, 0 0 48px #e60073;
-`;
+
 
 const activeStyle = ({ isActive }) => isActive ? { color: '#fff', animation: 'none' } : {};
 
@@ -57,8 +72,8 @@ const Navigation = () => {
           <Brand href= "/">MDBDev</Brand>{/* Replace MDBDev with your logo or brand name */}
             <NavLink to="/about" style={activeStyle}>About Me</NavLink>
             <NavLink to="/projects" style={activeStyle}>Projects</NavLink>
-            <NavLink to="/skills" style={activeStyle}>Skills</NavLink>
             <NavLink to="/contact" style={activeStyle}>Contact</NavLink>
+            <NavLink to="/skills" style={activeStyle}>Skills</NavLink>
         </Nav>
     );
 }

@@ -5,18 +5,19 @@ import BackgroundImage from '../assets/svg/ReactAboutme.svg';
 // Styled components for About Section 
 
  // Usinh Flex for a side-by-sde layout
-const Section = styled.section`
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    text-align: center;
-    position: relative;
-    @media (max-width: 768px) {
-        justify-content: center; // Center content on smaller screens
-        text-align: center;
-      }
+ const Section = styled.section`
+ height: 100vh;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ color: #fff;
+ text-align: center;
+ position: relative;
+ overflow: hidden;
+ @media (max-width: 768px) {
+   justify-content: center;
+   text-align: center;
+ }
 `;
 
 const ContentContainer = styled.div`
@@ -56,12 +57,14 @@ font-size: 1.2rem;
 const About = () => {
 
     return (
-      <Parallax strength={200} bgImage={BackgroundImage} bgImageStyle={{ 
+      <Parallax strength={300} bgImage={BackgroundImage} bgImageStyle={{ 
         // Ensures the image covers the available space, centered, and without repeating
-        height: '100vh',
+        height: 'auto',
+        width: '100%',
         backgroundSize: 'cover',
         backgroundPosition: 'center center',
         backgroundRepeat: 'no-repeat',
+        backgroundColor: '#000', // Add a black background color directly
       }}>
         <Section>
             <ContentContainer>

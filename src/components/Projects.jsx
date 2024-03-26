@@ -67,8 +67,9 @@ const ProjectsSection = () => {
     return (
         <Parallax strength={200} bgImage={BackgroundImage} bgImageStyle={{ 
             // Ensures the image covers the available space, centered, and without repeating
-            height: '100vh',
-            backgroundSize: 'cover',
+            height: 'auto',
+            width: '100%',
+            backgroundSize: 'auto',
             backgroundPosition: 'center center',
             backgroundRepeat: 'no-repeat',
           }}>
