@@ -7,7 +7,7 @@ import ProjectImage1 from '../assets/DnDevs.png';
 import ProjectImage2 from '../assets/NerdHerdHR.png';
 import { Parallax } from 'react-parallax';
 import BackgroundImage from '../assets/svg/ReactProjects.svg';
-
+import TheButton from './Button';
 
 // Styles for Container to hold cards 
 const ProjectsContainer = styled.div`
@@ -77,6 +77,7 @@ const ProjectsSection = () => {
             {projects.map((project, index) => (
                 <ProjectCard key={index} {...project} />
             ))}
+            <TheButton /> {/* Button with Modal Cotent per location */}
         </ProjectsContainer>
         </Parallax>
     );

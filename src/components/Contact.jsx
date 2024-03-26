@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Parallax } from 'react-parallax';
 import BackgroundImage from '../assets/svg/Contact.svg';
-
+import TheButton from './Button';
 
 const ContactContainer = styled.section`
   padding: 40px;
@@ -98,6 +98,7 @@ const Contact = () => {
                   <SubmitButton type="submit">Send Message</SubmitButton>
               </Form>
               </FormContainer>
+              <TheButton /> {/* Button with Modal Cotent per location */}
           </ContactContainer>
         </Parallax>
   
