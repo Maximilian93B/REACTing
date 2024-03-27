@@ -4,6 +4,19 @@ import { Parallax } from 'react-parallax';
 import BackgroundImage from '../assets/svg/Contact.svg';
 import TheButton from './Button';
 
+
+const ContactBackground = styled.div`
+display: flex;
+  flex-direction: column;
+  justify-content: center; // Center children vertically.
+  align-items: center; // Center children horizontally.
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+`;
+
 const ContactContainer = styled.section`
   padding: 40px;
   color: #fff;
@@ -79,31 +92,31 @@ const SubmitButton = styled.button`
 
 const Contact = () => {
     return (
+<Parallax strength={300} bgImage={BackgroundImage} bgImageStyle={{ 
+  // Ensures the image covers the available space, centered, and without repeating
+  height: 'auto',
+  width: '100vw',
+  backgroundSize: 'auto',
+  backgroundPosition: 'center center',
+  backgroundRepeat: 'no-repeat',
+}}>
+  <ContactBackground>
+  <ContactContainer>
+  <TheButton /> {/* Button with Modal Cotent per location */}
+    <FormContainer>
+      <Form>
+          <Input type="text" placeholder="Your Name" />
+          <Input type = "email" placeholder='Your Email' />
+          <TextArea placeholder='Your Mesage' />
+          <SubmitButton type="submit">Send Message</SubmitButton>
+      </Form>
+      </FormContainer>
+  </ContactContainer>
+  </ContactBackground>
+  </Parallax>
 
 
-      <Parallax strength={300} bgImage={BackgroundImage} bgImageStyle={{ 
-        // Ensures the image covers the available space, centered, and without repeating
-        height: 'auto',
-        width: '100vw',
-        backgroundSize: 'auto',
-        backgroundPosition: 'center center',
-        backgroundRepeat: 'no-repeat',
-      }}>
-          <ContactContainer>
-            <FormContainer>
-              <Form>
-                  <Input type="text" placeholder="Your Name" />
-                  <Input type = "email" placeholder='Your Email' />
-                  <TextArea placeholder='Your Mesage' />
-                  <SubmitButton type="submit">Send Message</SubmitButton>
-              </Form>
-              </FormContainer>
-              <TheButton /> {/* Button with Modal Cotent per location */}
-          </ContactContainer>
-        </Parallax>
-  
-
-    )
+)
 }
 
 

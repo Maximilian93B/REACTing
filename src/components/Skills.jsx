@@ -1,50 +1,92 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import SkillsMarquee from './SkillsMarquee';
+import CliInterface from './Terminal';
 import { Parallax } from 'react-parallax';
 import BackgroundImage from '../assets/svg/ReactSkills.svg';
 import TheButton from './Button';
 
 
-// Section to contain Skills 
-const SkillsContainer = styled.section`
-display: flex;
-flex-direction: column;
-justify-content: center; // Center children vertically.
-align-items: center; // Center children horizontally.
-height: 100vh;
-width: 100%;
-background-image: url(${BackgroundImage});
-background-size: cover;
-background-position: center;
-position: relative;
+const SkillsBackground = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center; // Center children vertically.
+  align-items: center; // Center children horizontally.
+  height: 100vh;
+  width: 100%;
+  background-image: url(${BackgroundImage});
+  background-size: cover;
+  background-position: center;
+  position: relative;
 `;
 
-
-// Titel Styles
-const Title = styled.h2`
-margin-bottom: 2rem; 
-font-size: 2.5rem;
-color: #e60073;
-font-family: 'Press Start 2P', cursive;
-`;
-
-
-// Might get rid of Pargraph now that Modal is in place
-const Paragraph = styled.p` 
-font-size: 1.1rem;
-  color: #c5c6c7; // Light grey for readability
+// Styles for header container
+const SkillsHeader = styled.header`
+  width: 100%;
+  padding: 20px 0;
+  margin: 50px 0px;
+  text-align: center; 
+  color: #39FF14; // Neon green for the text
   font-family: 'Press Start 2P', cursive;
-  margin-bottom: 2rem; // Adds some space before the marquee
+ 
+`;
+
+// Styles for title
+const HeaderTitle = styled.h1`
+  margin: 0;
+  padding: 0;
+  font-size: 2rem;
+  text-shadow: 0 0 5px #39FF14, 0 0 10px #39FF14; // Glowing text effect
+`;
+
+const HeaderSubtitle = styled.p`
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #c5c6c7; // Light grey for readability
+  text-shadow: 0 0 5px #39FF14, 0 0 10px #39FF14; // Consistent glowing effect
+`;
+
+// Skill Section Styles 
+const SkillsContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; // Align content to the start of the container
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow-y: auto; // Allows scrolling within the section if content exceeds viewport height
 `;
 
 // Contain 'TheButton' So we can control where it goes
-const ButtonContainer = styled.div`
-    display: flex;
-    justify-content: ;
-    align-items: center;
-    padding: 20px; 
+
+const ButtonContainer = styled.button`
+font-family: 'Press Start 2P', cursive; // A pixelated font similar to old video games
+background-color: #39FF14; // Vibrant neon green color
+color: #000; // Text color
+
+border: 3px solid #39FF14; // Neon green border to enhance the neon effect
+cursor: pointer;
+padding: 10px 10px;
+
+margin: 20px auto; // Add some margin to separate from other content
+font-size: 1rem;
+text-transform: uppercase;
+
+outline: none;
+box-shadow: 0 0 10px #39FF14, 0 0 20px #39FF14, 0 0 40px #39FF14, 0 0 80px #39FF14; // Glowing effect
+transition: background-color 0.3s ease-in-out;
+
+&:hover {
+  background-color: #13e700; // A slightly different shade of green on hover
+  box-shadow: 0 0 15px #39FF14, 0 0 25px #39FF14, 0 0 45px #39FF14, 0 0 85px #39FF14; // Enhanced glowing effect on hover
+}
+&:active {
+  transform: translateY(2px); // Pressed effect
+}
 `;
+
+
+
 
 //Skills Componnent
 //Parallax scrolling 
@@ -55,6 +97,14 @@ const ButtonContainer = styled.div`
 // Import TheButton
 
 const Skills = () => {
+
+    // Add state to track Terminal Open/Close
+    const [isTerminalVisible, setIsTerminalVisible] = useState(false);
+
+    // function to Toggle state to open/close terminal
+    const toggleTerminal = () => { setIsTerminalVisible(!isTerminalVisible)};
+
+
     return(
         <Parallax strength={200} bgImage={BackgroundImage} bgImageStyle={{ 
             // Ensures the image covers the available space, centered, and without repeating
@@ -64,15 +114,22 @@ const Skills = () => {
             backgroundPosition: 'center center',
             backgroundRepeat: 'no-repeat',
           }}>
-    <SkillsContainer>
-        <Title>My Skills</Title>
-            <Paragraph>
-            </Paragraph>
-        <SkillsMarquee />
-        <ButtonContainer>
-        <TheButton>Click Me</TheButton>
-        </ButtonContainer>
-    </SkillsContainer>
+            <SkillsBackground>
+                <SkillsContainer>
+                    <SkillsHeader>
+                        <HeaderTitle>My Skills</HeaderTitle>
+                        <HeaderSubtitle>A glimpse into my toolbox</HeaderSubtitle>
+                    </SkillsHeader>
+                     
+                    {/* Button to toggle CLI visibility */}
+                    <ButtonContainer onClick={toggleTerminal}>
+                    {isTerminalVisible ? 'Hide Terminal' : 'Show Terminal'}
+                    </ButtonContainer>
+                    {/* Conditionally render the CliInterface based on isTerminalVisible */}
+                    {isTerminalVisible && <CliInterface />}
+                    <TheButton></TheButton>
+                </SkillsContainer>
+            </SkillsBackground>
     </Parallax>
     );
 };
