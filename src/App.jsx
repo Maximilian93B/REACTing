@@ -9,6 +9,7 @@ import Hero from './components/Hero';
 import Skills from './components/Skills';
 import { LoadingScreen } from './components/LoadingScreen';
 
+
 // RouterLoader is responsible for displaying the loading screen 
 // useState --> to manage if loading or not 
 // Use location hook to detect route changes 
@@ -21,7 +22,6 @@ import { LoadingScreen } from './components/LoadingScreen';
 const RouteLoader = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const location = useLocation();
-
 
   useEffect(() => {
     setLoading(true);

@@ -17,15 +17,7 @@ border: 3px solid #e60073; // Neon-like border for emphasis
 display: flex;
 flex-direction: column;
 font-family: 'Press Start 2P', cursive; // Google Fonts pixelated font
-
-&:hover {
-  transform: translateY(-5px);
-  box-shadow:
-    0 0 10px #e60073,
-    0 0 20px #e60073,
-    0 0 40px #e60073,
-    0 0 80px #e60073; // Neon pink glow effect
-}
+ 
 `;
 
 const CardImage = styled.img`
@@ -82,20 +74,20 @@ const CardFooter = styled.div`
 `;
 
 const ProjectCard = ({title, description, imageUrl, projectUrl, repoUrl }) => {
-    return (
-        <Card>
-            <CardImage src={imageUrl} alt={title} />
-            <CardContent>
-                <h3 className={CardTitle}>{title}</h3>
-                <p className={CardDescription}>{description}</p>
-            </CardContent>
-            <CardFooter>
-                {projectUrl && <CardLink href={projectUrl} target="_blank" rel="noopener noreferrer">View Project</CardLink>}
+return (
+    <Card>
+      <CardImage src={imageUrl} alt={title} />
+        <CardContent>
+          <CardTitle>{title}</CardTitle>
+          <CardDescription>{description}</CardDescription>
+      </CardContent>
 
-                {repoUrl && <CardLink href={repoUrl} target="_blank" rel="noopener noreferrer">View Code</CardLink>}
-            </CardFooter>
-            </Card>
-    );
+    <CardFooter>
+    {projectUrl && <CardLink href={projectUrl} target="_blank" rel="noopener noreferrer">View Project</CardLink>}
+    {repoUrl && <CardLink href={repoUrl} target="_blank" rel="noopener noreferrer">View Code</CardLink>}
+    </CardFooter>
+    </Card>
+  );
 };
 
 export default ProjectCard;
