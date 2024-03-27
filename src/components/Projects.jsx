@@ -143,6 +143,7 @@ const ProjectsSection = () => {
                 {projectsVisibility[index] && <ProjectCard {...project} />}
                 </React.Fragment>
             ))}
+            <TheButton></TheButton>
             </ProjectsContainer>
         </ProjectsBackground>
         </Parallax>

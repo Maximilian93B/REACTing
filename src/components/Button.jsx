@@ -49,7 +49,6 @@ const ModalBackground = styled.div`
 
 // Handle styles for content inside Modal 
 const ModalContent = styled.div`
-
 width: 400px; // Set a specific width for the modal
 height: auto; // Let the height adjust based on the content, or set a specific height
 background-color: #000; // Typical for a 90s theme, adjust as needed
@@ -71,6 +70,7 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 font-family: 'Press Start 2P', cursive;
+color: white; 
 `;
 
 
@@ -112,7 +112,7 @@ const TheButton = () => {
         return "Hey, Im Max a Full Stack Dev with a passion for creating immersive digital experiences.My journey into the world of development is driven by a love for technology and design,blending the two to craft websites and applications that not only perform well but also captivate and engage. Dive into my portfolio to explore the projects that I have brought to life.";
       
         case '/skills':
-        return "AYOOO SKILLLS";
+        return "There are many ways for someone to present skills they posses.. Take a look around";
       
         case '/contact':
         return "Content for Contact Page";
