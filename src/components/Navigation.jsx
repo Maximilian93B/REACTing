@@ -75,6 +75,7 @@ const Navigation = () => {
     return (
         <Nav>
           <Brand href= "/">MDBDev</Brand>
+          <NavLink to ="/home" style={activeStyle}>Home</NavLink>
             <NavLink to="/about" style={activeStyle}>About Me</NavLink>
             <NavLink to="/projects" style={activeStyle}>Projects</NavLink>
             <NavLink to="/skills" style={activeStyle}>Skills</NavLink>

@@ -15,7 +15,7 @@ const Marquee = styled.div`
     width: 100%;
     overflow: hidden;
     white-space: nowrap;
-    background-color: transparent;
+    background-color: white;
     border-radius: 8px;
 `;
 
@@ -33,7 +33,7 @@ const MarqueeContent = styled.ul`
 
 const SkillIcon = styled.li`
     font-size: 2rem; // Adjust if needed
-    color: white;
+    color: #e60073;
     display: inline-flex;
     margin-right: 2rem;
 `;
@@ -58,6 +58,9 @@ const SkillsMarquee = () => {
                 <SkillIcon><i className="fab fa-github"></i></SkillIcon>
                 <SkillIcon><i className="fab fa-codepen"></i></SkillIcon>
                 <SkillIcon><i className="fab fa-free-code-camp"></i></SkillIcon>
+                <SkillIcon><i className="fa-brands fa-linux"></i></SkillIcon>
+                <SkillIcon><i className="fa-brands fa-js"></i></SkillIcon>
+                <SkillIcon></SkillIcon>
                 {/* Repeat Icons for seameless loop */}
                 <SkillIcon><i className="fab fa-github"></i></SkillIcon>
                 <SkillIcon><i className="fab fa-codepen"></i></SkillIcon>

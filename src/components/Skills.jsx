@@ -8,13 +8,16 @@ import TheButton from './Button';
 
 // Section to contain Skills 
 const SkillsContainer = styled.section`
+display: flex;
+flex-direction: column;
+justify-content: center; // Center children vertically.
+align-items: center; // Center children horizontally.
 height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    text-align: center;
-    position: relative;
+width: 100%;
+background-image: url(${BackgroundImage});
+background-size: cover;
+background-position: center;
+position: relative;
 `;
 
 

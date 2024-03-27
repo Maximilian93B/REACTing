@@ -8,17 +8,16 @@ import TheButton from './Button';
 
  // Usinh Flex for a side-by-sde layout
  const Section = styled.section`
- height: 100vh;
  display: flex;
- justify-content: center;
- align-items: center;
- color: #fff;
- text-align: center;
- position: relative;
- overflow: hidden;
- @media (max-width: 768px) {
-   justify-content: center;
-   text-align: center;
+ flex-direction: column;
+ justify-content: center; // Center children vertically.
+ align-items: center; // Center children horizontally.
+ height: 100vh;
+ width: 100%;
+ background-image: url(${BackgroundImage});
+ background-size: cover;
+ background-position: center;
+ position: relative;;
  }
 `;
 
