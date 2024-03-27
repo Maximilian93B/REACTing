@@ -112,7 +112,7 @@ const TheButton = () => {
         return "Hey, Im Max a Full Stack Dev with a passion for creating immersive digital experiences.My journey into the world of development is driven by a love for technology and design,blending the two to craft websites and applications that not only perform well but also captivate and engage. Dive into my portfolio to explore the projects that I have brought to life.";
       
         case '/skills':
-        return "AYOOO SKILLLS";
+        return "There are many ways for someone to present skills they posses.. Take a look around";
       
         case '/contact':
         return "Content for Contact Page";

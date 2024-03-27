@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import skillsDirectories from '../utils/TerminalData';
 
 // Styles for Terminal 
-
 const TerminalWindow = styled.div`
 background-color: #000;
 color: #00ff00;
@@ -19,7 +18,6 @@ overflow-y: auto;
 
 
 // Command line stlyes 
-
 const CommandLine = styled.div`
 display: flex;
 align-items: center;
@@ -49,7 +47,10 @@ const CommandLineOutput = styled.div`
 // CLI Logic 
 // useState for user input 
 // State to keep track of command history
-// Ref for focus input ?? 
+// currentDirectory = current location in the terminal 
+// setCurrentDirectory = is a state setter function that updates the currentDirectory
+// skillsDirectories = object imported from utils/TerminalData.js
+//setHistory = updates state to track history of commands + outputs entered --> will use to display to users
 
 const CliInterface = () => {
     const [input,setInput] = useState('');
@@ -76,39 +77,51 @@ const CliInterface = () => {
 
 
 const processCommand = (command) => {
-   
+    //Hold the response to the users commands
     let output; 
 
-
-    if(command === 'cd..') {
-        // Navigate back to root if not already there 
+    // Navigate to root directory when user inputs 'cd..' 
+    if(command === 'cd ..') {
+        // Check if current directory is not root
         if(currentDirectory !== 'root') {
+            // if not root , set directory back to root
             setCurrentDirectory('root');
             output = 'You are already at the root directory';
         } else {
+            //  if in root print output 
             output = 'You are already at the root directory';
         }
+
+        // Navigating to a specific directory with  `cd [directory] `
     } else if (command.startsWith('cd')) {
-        const directory = command.spit(' ')[1];
+        // Extract the directory name from the command 
+        const directory = command.split(' ')[1]; 
         // Check if the directory exists from current location 
         if (skillsDirectories[currentDirectory][directory]) {
+            // If the directory exists , update state and set description as output
             setCurrentDirectory(directory);
             output = skillsDirectories[currentDirectory][directory].description;
         } else {
+            // If the directory does not exist , print output 
             output = `Directory ${directory} not found.`;
         }
     } else {
         // Handle commands 
+        // case = command 
+        // output = command exe
         switch(command) {
         case 'help':
-            output = skillsDirectories[currentDirectory.help || 'We can only help so much...']
+            output = skillsDirectories[currentDirectory].help || 'No additional help available.';
              break;
              // Add other commands here 
              default:
+                // If unknown comand then print output 
                 output = `Unknown command: ${command}`;
         }
     }
 
+    // Update the history state when the command is entered 
+    // This will allow history of commands and outputs to be displayed in the terminal
     setHistory(prevHistory => [...prevHistory, `> ${command}`, output]);
 };
 
