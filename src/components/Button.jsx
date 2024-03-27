@@ -49,7 +49,6 @@ const ModalBackground = styled.div`
 
 // Handle styles for content inside Modal 
 const ModalContent = styled.div`
-
 width: 400px; // Set a specific width for the modal
 height: auto; // Let the height adjust based on the content, or set a specific height
 background-color: #000; // Typical for a 90s theme, adjust as needed
@@ -71,6 +70,7 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 font-family: 'Press Start 2P', cursive;
+color: white; 
 `;
 
 

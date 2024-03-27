@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-
+import skillsDirectories from '../utils/TerminalData';
 
 // Styles for Terminal 
 
@@ -54,6 +54,7 @@ const CommandLineOutput = styled.div`
 const CliInterface = () => {
     const [input,setInput] = useState('');
     const [history, setHistory] = useState(['Welcome to my CLI. Type "help" for..well help'])
+    const [currentDirectory, setCurrentDirectory] = useState('root');
     const inputRef = useRef(null);
 
     // Focus on the input field when component mounts 
@@ -61,6 +62,7 @@ const CliInterface = () => {
         inputRef.current.focus();
     }, [history]);
 
+        
     //Handle key down events in input field 
     const handleKeyDown = (e) => {
         // Check if key pressed is Enter
@@ -73,26 +75,43 @@ const CliInterface = () => {
     };
 
 
-    // Process users command
+const processCommand = (command) => {
+   
+    let output; 
 
-    const processCommand = (command) => {
-        let output;
-        // Check the command and set the output
-        switch (command) {
-            case 'help':
-                output = 'Commands available: help, skills, projects';
-                break;
-            case 'skills':
-                output = 'My Skills: JavaScript, React, Node.js, etc.';
-                break;
-            case 'projects':
-                output = 'My Projects: [Project Name], [Project Name]';
-                break;
-            default:
+
+    if(command === 'cd..') {
+        // Navigate back to root if not already there 
+        if(currentDirectory !== 'root') {
+            setCurrentDirectory('root');
+            output = 'You are already at the root directory';
+        } else {
+            output = 'You are already at the root directory';
+        }
+    } else if (command.startsWith('cd')) {
+        const directory = command.spit(' ')[1];
+        // Check if the directory exists from current location 
+        if (skillsDirectories[currentDirectory][directory]) {
+            setCurrentDirectory(directory);
+            output = skillsDirectories[currentDirectory][directory].description;
+        } else {
+            output = `Directory ${directory} not found.`;
+        }
+    } else {
+        // Handle commands 
+        switch(command) {
+        case 'help':
+            output = skillsDirectories[currentDirectory.help || 'We can only help so much...']
+             break;
+             // Add other commands here 
+             default:
                 output = `Unknown command: ${command}`;
         }
-        setHistory([...history, `> ${command}`, output]);
-    };
+    }
+
+    setHistory(prevHistory => [...prevHistory, `> ${command}`, output]);
+};
+
 
     return (
         <TerminalWindow>
