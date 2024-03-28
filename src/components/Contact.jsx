@@ -3,8 +3,7 @@ import styled, { keyframes }from 'styled-components';
 import { Parallax } from 'react-parallax';
 import BackgroundImage from '../assets/svg/Contact.svg';
 import TheButton from './Button';
-
-
+import GameHeader from './RetroHeader';
 
 
 // Keyframes up top
@@ -155,7 +154,7 @@ justify-content: center;
 align-items: center;
   `;
 
-
+// Close Button for Modal styles
 const CloseButton = styled.button`
 font-family: 'Press Start 2P', cursive;
   background-color: #e60073; /* Neon accent */
@@ -168,7 +167,6 @@ font-family: 'Press Start 2P', cursive;
 
 
 // Rolling Credits Data 
-
 const creditData =  [
   "I Hope you enjoyed my Portfolio, If you want to collaborate or talk to me about employment opportunities then please fill out the contact form and i will be in touch :).",
   " Happy Coding!",
@@ -179,7 +177,6 @@ const creditData =  [
 ]
 
 const Contact = () => {
-
   // use state to manage  modal visibility 
   const [showModal, setShowModal] = useState(false); // Set to false to initially hide Modal
 
@@ -212,6 +209,7 @@ const Contact = () => {
         </Modal>
   )}
   <ContactBackground>
+    <GameHeader text="GAME OVER"></GameHeader>
   <ContactContainer>
   <TheButton /> {/* Button with Modal Cotent per location */}
     <FormContainer>
