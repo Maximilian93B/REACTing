@@ -57,10 +57,10 @@ font-size: 1.2rem;
 
 const AvatarSlideEffect = keyframes`
 from {
-  transform: translateX(100%); // Start off-screen to the right
+  transform: translateX(150%); // Start off-screen to the right
 }
 to {
-  transform: translateX(0); // End at its intended position
+  transform: translateX(); // End at its intended position
 }
 
 `;
@@ -68,9 +68,9 @@ to {
 // Avatar styles 
 
 const Avatar = styled.img`
-width: 600px;
-height: 600px;
-border-radius: 50%;
+width: 800px;
+height: 800px;
+background: transparent;
 position: absolute; // Use absolute positioning to place the avatar
 right: 20px; // Distance from the right edge of its container
 top: 20px; // Distance from the top of its container
@@ -88,7 +88,7 @@ const About = () => {
   useEffect(() => {
     const timer = setTimeout(()=> {
       setShowAvatar(true) ;
-    }, 1000);
+    }, 5000);
 
     // return and clear timer 
     return () => clearTimeout(timer);
