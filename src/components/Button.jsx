@@ -117,7 +117,7 @@ const TheButton = () => {
         return "Content for Contact Page";
 
         case '/projects':
-        return " Content for Projects....";
+        return "Welcome to the lab , Toggle the buttons and take a look around! Feel free to go off and explore my projects. Im sure there is something there that will catch your eye.";
       
         default:
         return "Welcome to the Future";
