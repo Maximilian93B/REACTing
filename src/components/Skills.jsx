@@ -86,8 +86,6 @@ transition: background-color 0.3s ease-in-out;
 `;
 
 
-
-
 //Skills Componnent
 //Parallax scrolling 
 // Include Containers
@@ -126,7 +124,9 @@ const Skills = () => {
                     {isTerminalVisible ? 'Hide Terminal' : 'Show Terminal'}
                     </ButtonContainer>
                     {/* Conditionally render the CliInterface based on isTerminalVisible */}
-                    {isTerminalVisible && <CliInterface />}
+                    {isTerminalVisible && 
+                      <CliInterface />
+                    }
                     <TheButton></TheButton>
                 </SkillsContainer>
             </SkillsBackground>

@@ -1,21 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import skillsDirectories from '../utils/TerminalData';
+import  {skillsDirectories, welcomeMessage} from '../utils/TerminalData';
 
-// Styles for Terminal 
 const TerminalWindow = styled.div`
 background-color: #000;
 color: #00ff00;
 padding: 20px;
 font-family: 'Press Start 2P', monospace;
-font-size: 16px;
+font-size: 12px;
 border: 2px solid #00ff00;
-min-height: 300px;
-width: 80%;
+height: 80%;
+width: 60%;
 margin: auto;
 overflow-y: auto;
-`;
 
+`;
 
 // Command line stlyes 
 const CommandLine = styled.div`
@@ -23,6 +22,7 @@ display: flex;
 align-items: center;
 `;
 
+// Spacing for CLI prefix 
 const Prefix = styled.span`
   margin-right: 8px;
 `;
@@ -40,8 +40,10 @@ width: 100%;
 `;
 
 const CommandLineOutput = styled.div`
-  margin-bottom: 8px; // Adjust the space between command lines as needed
-`;
+  margin-bottom: 16px; // Adjust the space between command lines as needed
+  line-height: 1;
+  white-space: pre;
+  `;
 
 
 // CLI Logic 
@@ -53,10 +55,12 @@ const CommandLineOutput = styled.div`
 //setHistory = updates state to track history of commands + outputs entered --> will use to display to users
 
 const CliInterface = () => {
+    // Set states 
     const [input,setInput] = useState('');
-    const [history, setHistory] = useState(['Welcome to my CLI. Type "help" for..well help'])
     const [currentDirectory, setCurrentDirectory] = useState('root');
     const inputRef = useRef(null);
+
+    const [history, setHistory] = useState([welcomeMessage])
 
     // Focus on the input field when component mounts 
     useEffect(() => {
@@ -79,51 +83,64 @@ const CliInterface = () => {
 const processCommand = (command) => {
     //Hold the response to the users commands
     let output; 
-
-    // Navigate to root directory when user inputs 'cd..' 
-    if(command === 'cd ..') {
-        // Check if current directory is not root
-        if(currentDirectory !== 'root') {
-            // if not root , set directory back to root
-            setCurrentDirectory('root');
-            output = 'You are already at the root directory';
+    // if command is = to clear 
+    if(command === 'clear') {
+        // Clear the terminal 
+        setHistory([]);
+        return; //
+    } else if(command === 'ls') {
+        // Check and see if we are in root directory
+        if(currentDirectory === 'root') {
+            // List all directories 
+            output = Object.keys(skillsDirectories).join('');
         } else {
-            //  if in root print output 
-            output = 'You are already at the root directory';
+            // list directories or commands in current directory
+            const directories = skillsDirectories[currentDirectory] ? Object.keys(skillsDirectories[currentDirectory]) : [];
+            output = directories.length > 0 ? directories.join(' ') : 'No directories found';
         }
-
-        // Navigating to a specific directory with  `cd [directory] `
-    } else if (command.startsWith('cd')) {
-        // Extract the directory name from the command 
-        const directory = command.split(' ')[1]; 
-        // Check if the directory exists from current location 
-        if (skillsDirectories[currentDirectory][directory]) {
-            // If the directory exists , update state and set description as output
-            setCurrentDirectory(directory);
-            output = skillsDirectories[currentDirectory][directory].description;
+    }   // Navigate to root directory when user inputs 'cd..' 
+            else if(command === 'cd ..') {
+            // Check if current directory is not root
+            if(currentDirectory !== 'root') {
+                // if not root , set directory back to root
+                setCurrentDirectory('root');
+                output = 'Returned to root directory';
+            } else {
+                //  if in root print output 
+                output = 'You are already at the root directory';
+            }
+            // Navigating to a specific directory with  `cd [directory] `
+        } else if (command.startsWith('cd')) {
+            // Extract the directory name from the command 
+            const directory = command.split(' ')[1]; 
+            // Check if the directory exists from current location 
+            if (skillsDirectories[currentDirectory][directory]) {
+                // If the directory exists , update state and set description as output
+                setCurrentDirectory(directory);
+                output = skillsDirectories[currentDirectory][directory].description;
+            } else {
+                // If the directory does not exist , print output 
+                output = `Directory ${directory} not found.`;
+            }
         } else {
-            // If the directory does not exist , print output 
-            output = `Directory ${directory} not found.`;
+            // Handle commands 
+            // case = command 
+            // output = command exe
+            switch(command) {
+            case 'help':
+                output = skillsDirectories[currentDirectory].help || 'No additional help available.';
+                    break;
+                    // Add other commands here 
+                    default:
+                    // If unknown comand then print output 
+                    output = `Unknown command: ${command}`;
+            }
         }
-    } else {
-        // Handle commands 
-        // case = command 
-        // output = command exe
-        switch(command) {
-        case 'help':
-            output = skillsDirectories[currentDirectory].help || 'No additional help available.';
-             break;
-             // Add other commands here 
-             default:
-                // If unknown comand then print output 
-                output = `Unknown command: ${command}`;
-        }
-    }
 
-    // Update the history state when the command is entered 
-    // This will allow history of commands and outputs to be displayed in the terminal
-    setHistory(prevHistory => [...prevHistory, `> ${command}`, output]);
-};
+        // Update the history state when the command is entered 
+        // This will allow history of commands and outputs to be displayed in the terminal
+        setHistory(prevHistory => [...prevHistory, `> ${command}`, output].filter(Boolean)); // filter(Boolean) removes empty strings if output is empty
+        };
 
 
     return (
@@ -133,7 +150,7 @@ const processCommand = (command) => {
             <CommandLineOutput key={index}>{line}</CommandLineOutput> 
         ))}
             <CommandLine>
-            <Prefix>{'>'}</Prefix> {/* Display a static prefix */}
+            <Prefix>user@MDBdev{'>'}</Prefix> {/* Display a static prefix */}
                 <Input 
                 // Attach ref for focus
                 ref = {inputRef}

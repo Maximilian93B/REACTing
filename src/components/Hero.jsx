@@ -1,9 +1,9 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components';
 import { Parallax } from 'react-parallax';
-import BackgroundImage from '../assets/svg/ReactHeroBG.svg';
+import BackgroundImage from '../assets/svg/ReactingHeroPage.svg';
 import TheButton from './Button';
-import GameHeader from './RetroHeader';
+
 
 // Hero Section Container Styles 
 const HeroContainer = styled.section`
@@ -21,9 +21,16 @@ const HeroContainer = styled.section`
 `;
 
 const HeroContent = styled.div`
-    max-width: 600px;
-    padding: 20px;
-    margin-top: 100px;
+height: 100vh;
+width: 100vw;
+display: flex;
+justify-content: center;
+align-items: center;
+color: #fff;
+text-align: center;
+position: relative;
+overflow: hidden;
+font-family: 'Press Start 2P', cursive;;
 `; 
 // Flash for Hero Title effect
 const flash = keyframes`
@@ -39,18 +46,35 @@ const flash = keyframes`
   }
 `;
 
-const HeroTitle = styled.h1`
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    animation: ${flash} 1.5s linear infinite; // apply flash
+const HeroTitleContainer = styled.div  `
+    height: 10vh;
+    width: 40vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute; 
+    top: 10%; // Position  at the top of the page
+    left: 50%; // Center the container horizontally
+    transform: translateX(-50%); // Adjust for horizontal centering
+    background: black;
+    box-shadow: 0 0 20px #e60073, 0 0 30px #ff007a, 0 0 40px #e60073;
 `;
 
+const HeroTitle = styled.h1`
+    max-width: 600px;
+    padding: 20px;
+    animation: ${flash} 1.5s linear infinite; // apply flash
+    font-size: 2rem;
+`;  
+
 const ButtonContainer = styled.div`
-    text-align: center; // Center the content horizontally
-    position: absolute; // Positioning relative to the nearest positioned ancestor (HeroContainer)
-    top: 30%; // Adjust based on your layout
-    width: 100%; // Take the full width to center content correctly
-    z-index: 2; // Ensure it's above the background image
+text-align: center;
+position: absolute;
+top: 60vh; // Adjust this value based on the size of the HeroTitleContainer and desired spacing
+left: 50%;
+transform: translateX(-50%);
+width: 100%; // Or set a specific width if you prefer
+z-index: 2;
 
 `;
 
@@ -64,16 +88,16 @@ const Hero = () => {
             backgroundPosition: 'center center',
             backgroundRepeat: 'no-repeat',
           }}>
-            <ButtonContainer>
-          
-            </ButtonContainer>
         <HeroContainer>
             <HeroContent>
-                <HeroTitle>Loading...</HeroTitle>
-               
-                <TheButton /> {/* Button with Modal Cotent per location */}
+                <HeroTitleContainer>
+                    <HeroTitle>Ready Player One?</HeroTitle>
+                </HeroTitleContainer>
             </HeroContent>
         </HeroContainer>
+        <ButtonContainer>
+            <TheButton /> {/* Button with Modal Cotent per location */}
+            </ButtonContainer>
         </Parallax>
     );
 }; 
