@@ -37,7 +37,7 @@ const ReactCircles = styled.div`
   height: ${width};
   position: relative;
   perspective: 50000px;
-  color: #ff007a;
+  color: #ffcc00;
 
 
   span {
@@ -49,27 +49,35 @@ const ReactCircles = styled.div`
     width: 18.4%;
     height: 18.4%;
     border-radius: 100%;
-    background: currentcolor;
+    background: linear-gradient(45deg, #ff007a, #ffcc00); // Retro gradient effect
  
   }
 
   div {
     position: absolute;
     width: 100%;
-    height: 95%;
+    height: 100%;
     border-left: ${borderWidth} solid currentColor;
     border-top: ${borderWidth} solid transparent;
     border-radius: 100%;
+    box-shadow: 0 0 8px #ff007a;
 
     &:nth-child(4) {
-      animation: ${rotate(1)} 1s linear infinite;
+      animation: ${rotate(1)} 2s ease-in-out infinite;
     }
     &:nth-child(2) {
-      animation: ${rotate(2)} 1s linear infinite;
+      animation: ${rotate(2)} 2s ease-in-out infinite;
     }
     &:nth-child(3) {
-      animation: ${rotate(3)} 1s linear infinite;
+      animation: ${rotate(3)} 2s ease-in-out infinite;
     }
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
   }
 
 `;

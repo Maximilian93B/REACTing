@@ -13,7 +13,7 @@ height: 80%;
 width: 60%;
 margin: auto;
 overflow-y: auto;
-
+ 
 `;
 
 // Command line stlyes 

@@ -104,7 +104,7 @@ const TheButton = () => {
       
       case '/home':
         console.log(location.pathname);
-        return "Welcome to my Portfolio...";
+        return " This portfolio is a tribute to an era of tech that started it all for me. To all the Devs past,present and future..anything is possible";
       
         case '/about':
         return "Hey there! I'm Max. Welcome to my world of full stack development, where every line of code is a step towards creating something awesome. I've got a real knack for turning ideas into digital realities, and guess what? I love doing this in my free time too. So, you can bet that everything here is built with passion, professionalism, and a touch of fun.";
