@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components';
 import { Parallax } from 'react-parallax';
 import BackgroundImage from '../assets/svg/ReactAboutme.svg';
 import TheButton from './Button';
-import ReactAva from '../assets/svg/ReactAvatar.svg';
+import ReactAvatar from '../assets/svg/REactAvatar.2.png';
 // Styled components for About Section 
 
  // Usinh Flex for a side-by-sde layout
@@ -57,10 +57,10 @@ font-size: 1.2rem;
 
 const AvatarSlideEffect = keyframes`
 from {
-  transform: translateX(150%); // Start off-screen to the right
+  transform: translateX(100%); // Start off-screen to the right
 }
 to {
-  transform: translateX(); // End at its intended position
+  transform: translateX(-30%); // End at its intended position
 }
 
 `;
@@ -68,14 +68,15 @@ to {
 // Avatar styles 
 
 const Avatar = styled.img`
-width: 800px;
-height: 800px;
+width: 600px;
+height: 600px;
 background: transparent;
 position: absolute; // Use absolute positioning to place the avatar
-right: 20px; // Distance from the right edge of its container
-top: 20px; // Distance from the top of its container
-animation: ${AvatarSlideEffect} 0.5s ease-out forwards; // Use the animation
+right: 100px; // Distance from the right edge of its container
+bottom: 140px; // Distance from the top of its container
+animation: ${AvatarSlideEffect} 1s ease-out forwards; // Use the animation
 `;
+
 
 
 
@@ -108,9 +109,9 @@ const About = () => {
             <ContentContainer>
                 <ContentWrapper>
                   <Avatar
-                  src={ReactAva}
+                  src={ReactAvatar}
                   alt="Avatar"
-                  style={{ transform: showAvatar ? 'translateX(0)' : '' }} // Apply the slide-in effect
+                  style={{ showAvatar }} // Apply the slide-in effect
                   /> 
                   <Heading>About Me</Heading>
                     <TheButton /> {/* Button with Modal Cotent per location */}
