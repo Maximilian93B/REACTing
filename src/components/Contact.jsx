@@ -4,7 +4,7 @@ import { Parallax } from 'react-parallax';
 import BackgroundImage from '../assets/svg/Contact.svg';
 import TheButton from './Button';
 import GameHeader from './RetroHeader';
-
+import NextPageButton from './NextButton';
 
 // Keyframes up top
 const scrollCredits = keyframes`
@@ -220,6 +220,7 @@ const Contact = () => {
           <SubmitButton type="submit">Send Message</SubmitButton>
       </Form>
       </FormContainer>
+      <NextPageButton to='/' />
   </ContactContainer>
   </ContactBackground>
   </Parallax>

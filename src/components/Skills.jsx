@@ -4,7 +4,7 @@ import CliInterface from './Terminal';
 import { Parallax } from 'react-parallax';
 import BackgroundImage from '../assets/svg/ReactSkills.svg';
 import TheButton from './Button';
-
+import NextPageButton from './NextButton';
 
 const SkillsBackground = styled.div`
   display: flex;
@@ -127,6 +127,7 @@ const Skills = () => {
                     {isTerminalVisible && 
                       <CliInterface />
                     }
+                    <NextPageButton to ='/contact'/>
                     <TheButton></TheButton>
                 </SkillsContainer>
             </SkillsBackground>

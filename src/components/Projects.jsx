@@ -10,6 +10,7 @@ import ProjectImage4 from '../assets/svg/ReactAvatar.svg'
 import { Parallax } from 'react-parallax';
 import BackgroundImage from '../assets/svg/ReactProjects.svg';
 import TheButton from './Button';
+import NextPageButton from './NextButton';
 
 // Styles for Container to hold cards 
 const ProjectsBackground = styled.div`
@@ -158,6 +159,7 @@ const ProjectsSection = () => {
               )
           )}
         </ProjectsContainer>
+        <NextPageButton to = '/skills' />
         <TheButton />
       </ProjectsBackground>
     </Parallax>

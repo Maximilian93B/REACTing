@@ -4,6 +4,7 @@ import { Parallax } from 'react-parallax';
 import BackgroundImage from '../assets/svg/ReactAboutme.svg';
 import TheButton from './Button';
 import ReactAvatar from '../assets/svg/REactAvatar.2.png';
+import NextPageButton from './NextButton';
 // Styled components for About Section 
 
  // Usinh Flex for a side-by-sde layout
@@ -98,8 +99,8 @@ const About = () => {
     return (
       <Parallax strength={300} bgImage={BackgroundImage} bgImageStyle={{ 
         // Ensures the image covers the available space, centered, and without repeating
-        height: 'auto',
-        width: '100%',
+        height: '100vh',
+        width: '100vw',
         backgroundSize: 'cover',
         backgroundPosition: 'center center',
         backgroundRepeat: 'no-repeat',
@@ -116,7 +117,7 @@ const About = () => {
                   <Heading>About Me</Heading>
                     <TheButton /> {/* Button with Modal Cotent per location */}
                     <Paragraph>
-                      
+                     <NextPageButton to='/projects' /> 
                     </Paragraph> 
                     </ContentWrapper>
             </ContentContainer>     

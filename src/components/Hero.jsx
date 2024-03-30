@@ -1,9 +1,9 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components';
 import { Parallax } from 'react-parallax';
-import BackgroundImage from '../assets/svg/ReactingHeroPage.svg';
+import BackgroundImage from '../assets/svg/HeroBGv5.svg';
 import TheButton from './Button';
-
+import NextPageButton from './NextButton';
 
 // Hero Section Container Styles 
 const HeroContainer = styled.section`
@@ -53,11 +53,10 @@ const HeroTitleContainer = styled.div  `
     justify-content: center;
     align-items: center;
     position: absolute; 
-    top: 10%; // Position  at the top of the page
+    top:5%; // Position  at the top of the page
     left: 50%; // Center the container horizontally
     transform: translateX(-50%); // Adjust for horizontal centering
-    background: black;
-    box-shadow: 0 0 20px #e60073, 0 0 30px #ff007a, 0 0 40px #e60073;
+
 `;
 
 const HeroTitle = styled.h1`
@@ -69,23 +68,31 @@ const HeroTitle = styled.h1`
 
 const ButtonContainer = styled.div`
 text-align: center;
-position: absolute;
+position: fixed;
 top: 60vh; // Adjust this value based on the size of the HeroTitleContainer and desired spacing
-left: 50%;
+left: 58%;
 transform: translateX(-50%);
 width: 100%; // Or set a specific width if you prefer
 z-index: 2;
 
 `;
 
+
+const NextButtonStyles = styled.div`
+position: fixed;
+bottom: 400px; 
+right: 20px; 
+padding: 40px;
+`;
+
 const Hero = () => {
     return (
         <Parallax strength={200} bgImage={BackgroundImage} bgImageStyle={{ 
             // Ensures the image covers the available space, centered, and without repeating
-            width: '100%',
+            width: '100vw',
             height: 'auto',
-            backgroundSize: 'auto',
-            backgroundPosition: 'center center',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center ',
             backgroundRepeat: 'no-repeat',
           }}>
         <HeroContainer>
@@ -95,6 +102,9 @@ const Hero = () => {
                 </HeroTitleContainer>
             </HeroContent>
         </HeroContainer>
+        <NextButtonStyles>
+        <NextPageButton to ='/about' />
+        </NextButtonStyles>
         <ButtonContainer>
             <TheButton /> {/* Button with Modal Cotent per location */}
             </ButtonContainer>
