@@ -24,6 +24,16 @@ const RetroButton = styled.button`
   &:active {
     transform: translateY(2px); // Pressed effect
   }
+  @media (max-width: 768px) {
+    font-size: 14px; // Slightly smaller font size for tablets
+    padding: 8px 16px; // Adjust padding to fit smaller screens
+  }
+
+  // Media query for mobile devices (devices with width less than 480px)
+  @media (max-width: 480px) {
+    font-size: 12px; // Smaller font size for mobile devices
+    padding: 6px 12px; // Reduce padding for small screens
+  }
 `;
 
 
@@ -69,6 +79,19 @@ align-items: center;
 font-family: 'Press Start 2P', cursive;
 color: white; 
 line-height: 2;
+
+@media (max-width: 768px) {
+  width: 80%; // Use a higher percentage of width for tablet devices
+  padding: 20px; // Reduce padding to save space
+}
+
+@media (max-width: 480px) {
+  width: 95%; // Allow the modal to take up more space on very small screens
+  padding: 10px; // Further reduce padding to maximize space
+  font-size: 0.8rem; // Consider reducing font size if necessary for readability
+}
+
+
 `;
 
 

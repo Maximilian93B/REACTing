@@ -27,6 +27,12 @@ width: 100%;
 background-size: cover;
 background-position: center;
 position: relative;
+
+@media (max-width: 768px) {
+  flex-direction: column-reverse;
+  text-align: center;
+  gap: 20px; // Adds space between items when stacked
+}
 `;
 
 // Styles for Container 
@@ -37,11 +43,11 @@ align-items: center;
 width: 100%; // Take up the full width of the section
 max-width: 1200px; // Max width to prevent overly wide layouts
 
-@media (max-width: 768px) {
-  flex-direction: column-reverse; // Stack items vertically on smaller screens
-  text-align: center;
-}
+  @media (max-width: 768px) {
+    flex-direction: column-reverse; // Stack items vertically on smaller screens
+    text-align: center;
   }
+} 
 `;
 
 // styles for form container 
@@ -51,6 +57,16 @@ const FormContainer = styled.div`
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   display: inline-block; // Keeps the container size as per its content
+  
+  @media (max-width: 768px) {
+    width: 80%; // Adjust width for smaller screens
+  }
+
+  @media (max-width: 480px) {
+    width: 95%; // More width on very small screens
+    padding: 15px; // Adjust padding
+  }
+
 `;
 
 // Styles for Form
@@ -73,6 +89,10 @@ font-family: 'Press Start 2P', cursive;
   color: #fff;
   padding: 10px;
   border-radius: 5px;
+
+  @media (max-width: 480px) {
+    padding: 8px; // Slightly reduce padding
+  }
 `;
 
 // Form Text Area styles
@@ -83,6 +103,9 @@ font-family: 'Press Start 2P', cursive;
   color: #fff;
   padding: 10px;
   border-radius: 5px;
+  @media (max-width: 480px) {
+    padding: 8px; // Slightly reduce padding
+  }
 `;
 
 // Subit Button styles
@@ -111,6 +134,10 @@ font-family: 'Press Start 2P', cursive;
     box-shadow: 0 0 20px #e60073, 0 0 30px #e60073;
   }
 }
+
+@media (max-width: 480px) {
+  padding: 8px 16px; // Adjust padding for smaller screens
+}
 `;
  
 
@@ -132,7 +159,7 @@ z-index: 10;
 const CreditsContent = styled.div`
 position: absolute; // Allow this to move within the Credits
 width: 100%;
-animation: ${scrollCredits} 23s linear infinite;
+animation: ${scrollCredits} 20s linear infinite;
 `;
 
 
@@ -152,7 +179,20 @@ font-size: 1rem;
 display: flex;
 justify-content: center;
 align-items: center;
-  `;
+line-height: 1.5;
+
+@media (max-width: 768px) {
+  width: 80%; // Adjust width for tablets
+  height: 50vh; // Adjust height if necessary
+}
+
+@media (max-width: 480px) {
+  width: 95%; // More width for small screens
+  height: 100%; // Auto height based on content
+  padding: 15px; // Adjust padding
+  font-size: 0.9rem; // Adjust font size for readability
+}
+`;
 
 // Close Button for Modal styles
 const CloseButton = styled.button`
@@ -183,6 +223,7 @@ bottom: 400px;
 right: 30px; 
 padding: 40px;
 `;
+
 
 const Contact = () => {
   // use state to manage  modal visibility 
@@ -215,24 +256,24 @@ const Contact = () => {
           </Credits>
         </Modal>
   )}
-  <ContactBackground>
-    <GameHeader text="GAME OVER"></GameHeader>
-  <ContactContainer>
-  <TheButton /> {/* Button with Modal Cotent per location */}
+    <ContactBackground>
+    <GameHeader text="Continue?"></GameHeader>
+    <ContactContainer>
     <FormContainer>
       <Form>
-          <Input type="text" placeholder="Your Name" />
-          <Input type = "email" placeholder='Your Email' />
-          <TextArea placeholder='Your Mesage' />
-          <SubmitButton type="submit">Send Message</SubmitButton>
+        <Input type="text" placeholder="Your Name" />
+        <Input type = "email" placeholder='Your Email' />
+        <TextArea placeholder='Your Mesage' />
+        <SubmitButton type="submit">Send Message</SubmitButton>
       </Form>
-      </FormContainer>
+    </FormContainer>
+    <TheButton  /> {/* Button with Modal Cotent per location */}
       <NextButtonContainer>
-      <NextPageButton to='/' />
+        <NextPageButton to='/' />
       </NextButtonContainer>
-  </ContactContainer>
-  </ContactBackground>
-  </Parallax>
+    </ContactContainer>
+    </ContactBackground>
+    </Parallax>
 
 
 )

@@ -32,7 +32,14 @@ transition: background-color 0.3s ease-in-out;
 &:active {
   transform: translateY(2px); /* Pressed effect */
 }
+@media (max-width: 768px) {
+  font-size: 14px; // Slightly smaller font size for tablets
+  padding: 8px 16px; // Adjust padding to fit smaller screens
+}
 
+ @media (max-width: 480px) {
+  display: none; // Hide the container (and thus the button) on mobile devices
+}
 
 `;
 

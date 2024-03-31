@@ -5,6 +5,22 @@ import BackgroundImage from '../assets/svg/HeroBGv5.svg';
 import TheButton from './Button';
 import NextPageButton from './NextButton';
 
+
+
+const Section = styled.section`
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ min-height: 100vh; /* Use min-height to ensure content isn't clipped */
+ width: 100vw;
+ background-image: url(${BackgroundImage});
+ background-size: cover;
+ background-position: center;
+ 
+`;
+
+
 const HeroContainer = styled.section`
     height: 100vh;
     width: 100vw;
@@ -15,8 +31,20 @@ const HeroContainer = styled.section`
     text-align: center;
     position: relative;
     overflow: hidden;// Hero Section Container Styles 
+    
+    @media (max-width: 768px) {
+        height: auto; // Allow container to grow with content
+        min-height: 100vh; // Ensure it's not smaller than the viewport
+        top: 10%; // You might want to adjust this for better visibility on small screens
+        width: 80vw; // Increase width for smaller screens if necessary
+    }
+    @media (max-width: 480px) {
+        height: auto; // Allow container to grow with content
+        min-height: 100vh; // Ensure it's not smaller than the viewport
+        font-size: 12px; // Smaller font size for mobile devices
+        padding: 6px 12px; // Reduce padding for small screens
+      }
     `;
-
 
 const HeroContent = styled.div`
 height: 100vh;
@@ -53,7 +81,6 @@ const HeroTitleContainer = styled.div  `
     top:5%; // Position  at the top of the page
     left: 50%; // Center the container horizontally
     transform: translateX(-50%); // Adjust for horizontal centering
-
 `;
 
 const HeroTitle = styled.h1`
@@ -61,25 +88,43 @@ const HeroTitle = styled.h1`
     padding: 20px;
     animation: ${flash} 1.5s linear infinite; // apply flash
     font-size: 2rem;
+
+    @media (max-width: 768px) {
+        font-size: 1.5rem; // Adjust font size for smaller screens
+      }
+    
+      @media (max-width: 480px) {
+        font-size: 1.2rem; // Further reduce font size for very small screens
+      }
 `;  
 
 const ButtonContainer = styled.div`
-text-align: center;
 position: fixed;
-top: 60vh; // Adjust this value based on the size of the HeroTitleContainer and desired spacing
-left: 58%;
-transform: translateX(-50%);
-width: 100%; // Or set a specific width if you prefer
-z-index: 2;
-
+    top: 60vh; // Original position might be too low for mobile devices
+    left: 60%;
+    transform: translateX(-50%);
+    @media (max-width: 768px) {
+        top: 10vh; // Adjust position for tablet
+    }
+    @media (max-width: 480px) {  
+      top: 40vh; // Adjust position for mobile phones
+      left: 47%
+    }
 `;
-
 
 const NextButtonStyles = styled.div`
 position: fixed;
 bottom: 400px; 
 right: 20px; 
 padding: 40px;
+
+@media (max-width: 768px) {
+    bottom: 8vh; // Adjust for smaller screens
+  }
+
+  @media (max-width: 480px) {
+    bottom: 65vh; // Further adjust for very small screens
+  }
 `;
 
 const Hero = () => {
@@ -93,6 +138,7 @@ const Hero = () => {
             backgroundPosition: 'center ',
             backgroundRepeat: 'no-repeat',
           }}>
+            <Section>
             <HeroContainer>
             <HeroContent>
                 <HeroTitleContainer>
@@ -106,6 +152,7 @@ const Hero = () => {
             <TheButton /> {/* Button with Modal Cotent per location */}
             </ButtonContainer>
             </HeroContainer>
+            </Section>
         </Parallax>
     );
 }; 

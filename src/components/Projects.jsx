@@ -39,7 +39,14 @@ const ProjectsContainer = styled.div`
         /* You might want to adjust the gap for smaller screens */
         gap: 10px;
       }
-  `;
+      
+      @media (max-width: 480px) {
+        gap: 10px;
+        padding: 0 10px; // Add padding on the sides for smaller screens
+  
+  
+      `;
+
 
 const ButtonContainer = styled.div`
 display: flex;
@@ -47,6 +54,11 @@ flex-wrap: wrap;
 justify-content: center;
 gap: 10px;
 padding: 20px; 
+
+@media (max-width: 480px) {
+  gap: 5px; // Reduce gap for smaller screens
+  padding: 10px; // Reduce padding to save space
+}
 
 `;
 
@@ -71,8 +83,11 @@ transition: background-color 0.3s ease-in-out;
 &:active {
   transform: translateY(2px); // Pressed effect
 }
-`;
 
+@media (max-width: 480px) {
+  font-size: 14px; // Smaller font size for smaller screens
+  padding: 8px 16px; // Slightly reduce padding
+`;
 
 
 // Project Data 
@@ -117,6 +132,12 @@ position: fixed;
 bottom: 400px; 
 right: 20px; 
 padding: 40px;
+
+@media (max-width: 480px) {
+  bottom: 10px; // Even closer to the bottom edge
+  right: 10px; // Closer to the right edge
+  padding: 10px; // Reduce padding to save space
+}
 `;
 
 // Project Component

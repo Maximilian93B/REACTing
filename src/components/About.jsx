@@ -11,13 +11,14 @@ import NextPageButton from './NextButton';
  const Section = styled.section`
  display: flex;
  flex-direction: column;
- justify-content: center; // Center children vertically.
- align-items: center; // Center children horizontally.
- height: 100vh;
+ justify-content: center;
+ align-items: center;
+ min-height: 100vh; /* Use min-height to ensure content isn't clipped */
  width: 100vw;
  background-image: url(${BackgroundImage});
  background-size: cover;
- }
+ background-position: center;
+
 `;
 
 const ContentContainer = styled.div`
@@ -27,19 +28,36 @@ const ContentContainer = styled.div`
   width: 100%; // Take up the full width of the section
   max-width: 1200px; // Max width to prevent overly wide layouts
 
+  // Tablet 
   @media (max-width: 768px) {
     flex-direction: column-reverse; // Stack items vertically on smaller screens
     text-align: center;
+    padding: 20px;
+  }
+  // Mobile 
+  @media (max-width: 480px) {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 40px 20px; // Increased padding for mobile devices
   }
 `;
 
 const ContentWrapper = styled.div`
-  max-width: 600px; // Limit the content width for readability
-  // Consider adding padding or margin if needed, for example:
-  padding-right: 20px; // Add padding on the right for breathing space
+  max-width: 600px; 
+  padding-right: 20px; 
+ 
+  // Tablet
   @media (max-width: 768px) {
     padding-right: 0; // Remove right padding on smaller screens
   }
+
+  // Mobile 
+  @media (max-width: 480px) {
+    max-width: 90%; // Allow some margin on the sides
+    padding-right: 0; // Remove right padding
+    margin: 0 5%; // Center content with margin instead of padding
+  }
+
   `;
 
 
@@ -48,10 +66,17 @@ const Heading = styled.h1`
     margin-bottomL 20px; 
     font-family: 'Press Start 2P', cursive;
     color: black; 
+
+    @media (max-width: 480px) {
+      font-size: 1.8rem; // Reduce font size for small screens
+    }
 `;
 
 const Paragraph = styled.p` 
 font-size: 1.2rem;
+
+@media (max-width: 480px) {
+  font-size: 1rem; // Smaller font size for better readability on mobile
 `;
 
 const AvatarSlideEffect = keyframes`
@@ -74,6 +99,14 @@ position: absolute; // Use absolute positioning to place the avatar
 right: 300px; // Distance from the right edge of its container
 bottom: 140px; // Distance from the top of its container
 animation: ${AvatarSlideEffect} 1s ease-out forwards; // Use the animation
+
+
+@media (max-width: 480px) {
+  width: 100%; // Use percentage-based sizing for responsiveness
+  height: auto; // Maintain aspect ratio
+  right: 10%; // Adjust for center alignment
+  bottom: 200px; // Adjust bottom positioning to not overlap other content
+}
 `;
 
 
