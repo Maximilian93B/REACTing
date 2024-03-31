@@ -3,7 +3,8 @@ import styled, { keyframes } from 'styled-components';
 import { Parallax } from 'react-parallax';
 import BackgroundImage from '../assets/svg/ReactAboutme.svg';
 import TheButton from './Button';
-import ReactAvatar from '../assets/svg/REactAvatar.2.png';
+import ReactAvatar from '../assets/svg/ReactAvatar.svg';
+import NextPageButton from './NextButton';
 // Styled components for About Section 
 
  // Usinh Flex for a side-by-sde layout
@@ -13,11 +14,9 @@ import ReactAvatar from '../assets/svg/REactAvatar.2.png';
  justify-content: center; // Center children vertically.
  align-items: center; // Center children horizontally.
  height: 100vh;
- width: 100%;
+ width: 100vw;
  background-image: url(${BackgroundImage});
  background-size: cover;
- background-position: center;
- position: relative;;
  }
 `;
 
@@ -68,11 +67,11 @@ to {
 // Avatar styles 
 
 const Avatar = styled.img`
-width: 600px;
+width: 800px;
 height: 600px;
 background: transparent;
 position: absolute; // Use absolute positioning to place the avatar
-right: 100px; // Distance from the right edge of its container
+right: 300px; // Distance from the right edge of its container
 bottom: 140px; // Distance from the top of its container
 animation: ${AvatarSlideEffect} 1s ease-out forwards; // Use the animation
 `;
@@ -98,8 +97,8 @@ const About = () => {
     return (
       <Parallax strength={300} bgImage={BackgroundImage} bgImageStyle={{ 
         // Ensures the image covers the available space, centered, and without repeating
-        height: 'auto',
-        width: '100%',
+        height: '100vh',
+        width: '100vw',
         backgroundSize: 'cover',
         backgroundPosition: 'center center',
         backgroundRepeat: 'no-repeat',
@@ -116,7 +115,7 @@ const About = () => {
                   <Heading>About Me</Heading>
                     <TheButton /> {/* Button with Modal Cotent per location */}
                     <Paragraph>
-                      
+                     <NextPageButton to='/projects' /> 
                     </Paragraph> 
                     </ContentWrapper>
             </ContentContainer>     

@@ -4,18 +4,21 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import ProjectCard from './ProjectCard';
 import ProjectImage1 from '../assets/DnDevs.png';
-import ProjectImage2 from '../assets/NerdHerdHR.png';
+import ProjectImage2 from '../assets/svg/NerdHerd.svg';
+import ProjectImage3 from '../assets/svg/SocailMind.svg'
+import ProjectImage4 from '../assets/svg/ReactAvatar.svg'
 import { Parallax } from 'react-parallax';
 import BackgroundImage from '../assets/svg/ReactProjects.svg';
 import TheButton from './Button';
+import NextPageButton from './NextButton';
 
 // Styles for Container to hold cards 
 const ProjectsBackground = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center; // Center children vertically.
+  justify-content: flex-start;
   align-items: center; // Center children horizontally.
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background-image: url(${BackgroundImage});
   background-size: cover;
@@ -24,16 +27,11 @@ const ProjectsBackground = styled.div`
 `;
 
 const ProjectsContainer = styled.div`
-    height: 100vh;
-    display: flex;
-    flex-direction: row; 
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;   
-    color: #fff;
-    text-align: center;
-    position: relative;
-    gap: 40px;
+  display: flex;
+  flex-wrap: wrap; // Allows cards to wrap
+  justify-content: center;
+  gap: 20px; // Spacing between cards
+  width: 100%; // Ensure it takes up full container width
     @media (max-width: 768px) {
         margin-bottom: 15px; /* Smaller screens */
         justify-content: center;
@@ -41,6 +39,15 @@ const ProjectsContainer = styled.div`
         /* You might want to adjust the gap for smaller screens */
         gap: 10px;
       }
+  `;
+
+const ButtonContainer = styled.div`
+display: flex;
+flex-wrap: wrap; 
+justify-content: center;
+gap: 10px;
+padding: 20px; 
+
 `;
 
 const ToggleButton = styled.button`
@@ -74,8 +81,7 @@ const projects = [
         title: "DnDevs",
         description: "Welcome to DungeonsAndDevs 🏰👨‍💻, where coding and fantasy merge in an epic learning adventure.",
         imageUrl: ProjectImage1,
-        projectUrl: "https://projectone.com",
-        repoUrl: "https://github.com/yourusername/projectone",
+        projectUrl: "https://github.com/Maximilian93B/DungeonsAndDevs",
         isVisible: false, // Adding for useState to toggle project View
     },
     
@@ -83,28 +89,37 @@ const projects = [
         title: "NerdHerdHR",
         description: "NerdHerdHR is a all in one Human Resources tool all in your CLI .",
         imageUrl: ProjectImage2,
-        projectUrl: "https://projectone.com",
-        repoUrl: "https://github.com/Maximilian93B/NerdHerdHR",
+        projectUrl: "https://github.com/Maximilian93B/NerdHerdHR",
+       
     },
     
     {
         title: "Socail Mind API",
         description: "SocialMindAPI is a back-end platform designed to power social networking features with ease and efficiency.",
-        imageUrl: "path_to_project_one_image",
-        projectUrl: "https://projectone.com",
-        repoUrl: "https://github.com/yourusername/projectone",
+        imageUrl: ProjectImage3,
+        projectUrl: "https://github.com/Maximilian93B/SocialMindAPI",
+       
     },
     
     {
-        title: "Project Four",
-        description: "This is a brief description of Project One.",
-        imageUrl: "path_to_project_one_image",
-        projectUrl: "https://projectone.com",
-        repoUrl: "https://github.com/yourusername/projectone",
+        title: "Reacting",
+        description: "Reacting is a front-end React project inspired by my childhood.",
+        imageUrl: ProjectImage4,
+        projectUrl: "https://github.com/Maximilian93B/REACTing",
+       
     },
      
 ];
 
+
+const NextButtonContainer = styled.div`
+position: fixed;
+bottom: 400px; 
+right: 20px; 
+padding: 40px;
+`;
+
+// Project Component
 
 //Map though projects Array and render cards for each project
 const ProjectsSection = () => {
@@ -112,15 +127,15 @@ const ProjectsSection = () => {
 
   const [projectsVisibility, setProjectsVisibility] = useState(
     projects.reduce((acc, projects, index)=>{
-        acc[index] = false; // Iinit all projects as false 
+        acc[projects.title] = false; // Iinit with project title as key  
         return acc; 
     }, {})
   );
-  
-  const toggleProjectVisibility = (index) => {
+    // Manage the state to toggle projects visibility on title
+  const toggleProjectVisibility = (title) => {
     setProjectsVisibility(prevState => ({
       ...prevState,
-      [index]: !prevState[index]
+      [title]: !prevState[title]
     }));
   };
   
@@ -134,20 +149,31 @@ const ProjectsSection = () => {
       backgroundRepeat: 'no-repeat',
     }}>
     <ProjectsBackground>
-            <ProjectsContainer>
-            {projects.map((project, index) => (
-                <React.Fragment key={index}>
-                <ToggleButton onClick={() => toggleProjectVisibility(index)}>
-                    {project.title}
-                </ToggleButton>
-                {projectsVisibility[index] && <ProjectCard {...project} />}
-                </React.Fragment>
-            ))}
-            <TheButton></TheButton>
-            </ProjectsContainer>
-        </ProjectsBackground>
-        </Parallax>
-    );
+    <ButtonContainer>
+          {projects.map((project, index) => (
+            <ToggleButton
+              key={index}
+              onClick={() => toggleProjectVisibility(project.title)}
+            >
+              {project.title}
+            </ToggleButton>
+          ))}
+        </ButtonContainer>
+      <ProjectsContainer>
+          {projects.map(
+            (project, index) =>
+              projectsVisibility[project.title] && (
+                <ProjectCard key={index} {...project} />
+              )
+          )}
+          <NextButtonContainer>
+        <NextPageButton to = '/skills' />
+        </NextButtonContainer>    
+        </ProjectsContainer>
+        <TheButton />
+      </ProjectsBackground>
+    </Parallax>
+  );
 };
 
 export default ProjectsSection;
