@@ -110,9 +110,6 @@ animation: ${AvatarSlideEffect} 1s ease-out forwards; // Use the animation
 `;
 
 
-
-
-
 const About = () => {
   // set Avatar to initially be false to be hidden
   const[showAvatar, setShowAvatar] = useState(false);

@@ -42,6 +42,10 @@ const Prefix = styled.span`
   margin-right: 8px;
 `;
 
+const Root = styled.span`
+color: red;
+`;
+
 // Input Styles 
 const Input = styled.input`
 background: none;
@@ -60,8 +64,9 @@ width: 100%;
 
 const CommandLineOutput = styled.div`
   margin-bottom: 16px; // Adjust the space between command lines as needed
-  line-height: 1;
-  white-space: pre;
+  line-height: 1.5;
+  white-space: pre-wrap; // Allows text to wrap and preserves formatting
+  word-break: break-word; // Ensures long words don't overflow
 
 
   @media (max-width: 480px) {
@@ -175,7 +180,9 @@ const processCommand = (command) => {
             <CommandLineOutput key={index}>{line}</CommandLineOutput> 
         ))}
             <CommandLine>
-            <Prefix>user@MDBdev{'>'}</Prefix> {/* Display a static prefix */}
+            <Prefix>
+            <Root>root</Root>@MDBdev{'>'}
+            </Prefix> {/* Display a static prefix */}
                 <Input 
                 // Attach ref for focus
                 ref = {inputRef}

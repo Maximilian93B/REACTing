@@ -127,12 +127,11 @@ const TheButton = () => {
       
       case '/home':
         console.log(location.pathname);
-        return " This portfolio is a tribute to an era of tech that started it all for me. To all the Devs past,present and future..anything is possible";
+        return " This portfolio is a tribute to an era of tech that started it all for me and inspired me to become a developer. To all the Devs past,present and future..The world thanks you";
       
         case '/about':
         return "Hey there! I'm Max. Welcome to my world of full stack development, where every line of code is a step towards creating something awesome. I've got a real knack for turning ideas into digital realities, and guess what? I love doing this in my free time too. So, you can bet that everything here is built with passion, professionalism, and a touch of fun.";
 
-      
         case '/skills':
         return "There are many ways for someone to display skills they posses..";
       
@@ -143,7 +142,7 @@ const TheButton = () => {
         return "Welcome to the lab , Toggle the buttons and take a look around! Feel free to go off and explore my projects. Im sure there is something there that will catch your eye.";
       
         default:
-        return "Welcome to the Future";
+        return "Welcome to the portfolio of MDBdev";
     }
   };
   // Returns JSX with Button logic + ModalContent with conditonal 

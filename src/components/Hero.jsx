@@ -99,16 +99,20 @@ const HeroTitle = styled.h1`
 `;  
 
 const ButtonContainer = styled.div`
-position: fixed;
-    top: 60vh; // Original position might be too low for mobile devices
-    left: 60%;
+position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px;
+top: 5vh; // Original position might be too low for mobile devices
+right: 55%;
     transform: translateX(-50%);
     @media (max-width: 768px) {
         top: 10vh; // Adjust position for tablet
     }
     @media (max-width: 480px) {  
       top: 40vh; // Adjust position for mobile phones
-      left: 47%
+      left: %
     }
 `;
 
@@ -116,7 +120,7 @@ const NextButtonStyles = styled.div`
 position: fixed;
 bottom: 400px; 
 right: 20px; 
-padding: 40px;
+padding: 10px;
 
 @media (max-width: 768px) {
     bottom: 8vh; // Adjust for smaller screens

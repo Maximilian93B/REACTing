@@ -2,7 +2,7 @@
  ____________________
 /                    \
 |                    
-|     'help':)      
+|     'help';)      
 \____________________/
          !  !
          !  !
@@ -24,7 +24,7 @@
 
 export const skillsDirectories = {
   root: {
-      help: " Welcome to the CLI, If you are new to using a CLI here are the available Commands: 'help', 'cd ..' , 'ls'.",
+      help: " Welcome to the CLI, If you are new to using a CLI here are the available Commands: 'help', 'cd ..' , 'ls'." + "Directories: react_hooks,styled_components,state_management, command_processing, execution ",
       react_hooks: {
         description: "React Hooks let us tap into React features for state and effects. We use them here to manage what you see and do.",
         useState: {
