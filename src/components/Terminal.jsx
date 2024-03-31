@@ -13,6 +13,17 @@ height: 80%;
 width: 60%;
 margin: auto;
 overflow-y: auto;
+@media (max-width: 768px) {
+    width: 80%; // Increase width for medium devices
+    height: auto; // Adjust height based on content
+    padding: 15px; // Slightly reduce padding
+  }
+
+  @media (max-width: 480px) {
+    width: 95%; // Make it wider on small screens
+    padding: 10px; // Reduce padding further
+    font-size: 10px; // Decrease font size for space
+  }
  
 `;
 
@@ -20,6 +31,10 @@ overflow-y: auto;
 const CommandLine = styled.div`
 display: flex;
 align-items: center;
+@media (max-width: 480px) {
+    flex-direction: column; // Stack elements vertically if necessary
+    align-items: flex-start; // Align items to the start
+  }
 `;
 
 // Spacing for CLI prefix 
@@ -37,12 +52,22 @@ width: 100%;
 &:focus {
   outline: none;
 }
+
+@media (max-width: 480px) {
+    font-size: 10px; // Slightly reduce font size for small screens
+  }
 `;
 
 const CommandLineOutput = styled.div`
   margin-bottom: 16px; // Adjust the space between command lines as needed
   line-height: 1;
   white-space: pre;
+
+
+  @media (max-width: 480px) {
+    margin-bottom: 8px; // Reduce space between command lines
+    line-height: 1.2; // Adjust line height for readability
+  }
   `;
 
 

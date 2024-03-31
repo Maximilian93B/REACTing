@@ -28,6 +28,10 @@ const SkillsHeader = styled.header`
   color: #39FF14; // Neon green for the text
   font-family: 'Press Start 2P', cursive;
  
+  @media (max-width: 480px) {
+    padding: 5px 0;
+    margin: 20px 0;
+  }
 `;
 
 // Styles for title
@@ -36,6 +40,10 @@ const HeaderTitle = styled.h1`
   padding: 0;
   font-size: 2rem;
   text-shadow: 0 0 5px #39FF14, 0 0 10px #39FF14; // Glowing text effect
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem; /* Further reduce for small screens */
+  
 `;
 
 const HeaderSubtitle = styled.p`
@@ -43,6 +51,10 @@ const HeaderSubtitle = styled.p`
   font-size: 1rem;
   color: #c5c6c7; // Light grey for readability
   text-shadow: 0 0 5px #39FF14, 0 0 10px #39FF14; // Consistent glowing effect
+
+  @media (max-width: 480px) {
+    font-size: 0.7rem; /* Further reduce for readability */
+  }
 `;
 
 // Skill Section Styles 
@@ -89,6 +101,10 @@ position: fixed;
 bottom: 400px; 
 right: 20px; 
 padding: 40px;
+
+ @media (max-width: 480px) {
+  display: none; // Hide the container (and thus the button) on mobile devices
+}
 `;
 
 //Skills Componnent

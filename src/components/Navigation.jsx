@@ -28,7 +28,10 @@ const Nav = styled.nav`
   font-family: 'Press Start 2P', sans-serif; 
   border-radius: 2px;
   @media (max-width: 768px) {
-    margin: 10px 5px;
+    flex-direction: column; // Stack nav items vertically on smaller screens
+    padding: 10px 0; // Reduce padding
+    justify-content: center; // Adjust if using flex-direction: column;
+  }
   }
 `;
 

@@ -16,14 +16,26 @@ border: 3px solid #e60073; // Neon-like border for emphasis
 display: flex;
 flex-direction: column;
 font-family: 'Press Start 2P', cursive; // Google Fonts pixelated font
+
+@media (max-width: 768px) {
+  width: 90%; // Use a percentage-based width for better responsiveness
+  height: auto; // Adjust height automatically based on content
+  padding: 15px; // Slightly reduce padding
+}
+
+@media (max-width: 480px) {
+  width: 95%; // Allow the card to take up more space on very small screens
+  padding: 10px; // Further reduce padding for small screens
+}
+
 `;
 
 const CardImage = styled.img`
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 5px;
+width: 100%;
+height: auto; // Adjust height automatically to maintain aspect ratio
+object-fit: cover;
+object-position: center;
+border-radius: 5px;
 `;
 
 const CardContent = styled.div`
@@ -47,11 +59,27 @@ const CardTitle = styled.h3`
 margin: 0;
   font-size: 1.2rem; // Pixel fonts can be hard to read at smaller sizes
   color: #00ff00;
+
+  @media (max-width: 768px) {
+    font-size: 1rem; // Slightly reduce font size on smaller screens
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem; // Further reduce for very small screens
+  }
 `;
 
 const CardDescription = styled.p` 
 font-size: 0.9rem; // Smaller text, but ensure readability
   line-height: 2;
+
+  @media (max-width: 768px) {
+    font-size: 0.8rem; // Adjust font size for readability
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.7rem; // Further reduce for small screens
+  }
 `;
 
 const CardLink = styled.a`
@@ -63,6 +91,14 @@ display: inline-block;
   
   &:hover {
     color: #ff00ff; // Change color on hover for interaction feedback
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.7rem; // Slightly reduce font size
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.6rem; // Further reduce for very small screens
   }
 `;
 

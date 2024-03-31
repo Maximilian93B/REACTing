@@ -19,7 +19,6 @@ gap: 20px; // Adjust the space between items as needed
 
 `;
 
-
 // Rotate keyframese for react ribbons 
 const rotate = (i) => keyframes`
 from {
@@ -38,8 +37,7 @@ const ReactCircles = styled.div`
   position: relative;
   perspective: 50000px;
   color: #ffcc00;
-
-
+ 
   span {
     position: absolute;
     top: 50%;
@@ -50,7 +48,10 @@ const ReactCircles = styled.div`
     height: 18.4%;
     border-radius: 100%;
     background: linear-gradient(45deg, #ff007a, #ffcc00); // Retro gradient effect
- 
+    @media (max-width: 768px) {
+      width: 15vmin; // Smaller screens get a larger relative size
+      height: 15vmin;
+    }
   }
 
   div {
@@ -79,8 +80,13 @@ const ReactCircles = styled.div`
         transform: rotate(360deg);
       }
   }
+  @media (max-width: 768px) {
+    width: 70vmin; // Smaller screens get a larger relative size
+    height: 70vmin;
+  }
 
 `;
+
 
 // Loading Component
 
