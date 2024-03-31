@@ -4,8 +4,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import ProjectCard from './ProjectCard';
 import ProjectImage1 from '../assets/DnDevs.png';
-import ProjectImage2 from '../assets/NerdHerdHR.png';
-import ProjectImage3 from '../assets/SocialMindApi.jpg'
+import ProjectImage2 from '../assets/svg/NerdHerd.svg';
+import ProjectImage3 from '../assets/svg/SocailMind.svg'
 import ProjectImage4 from '../assets/svg/ReactAvatar.svg'
 import { Parallax } from 'react-parallax';
 import BackgroundImage from '../assets/svg/ReactProjects.svg';
@@ -111,6 +111,14 @@ const projects = [
      
 ];
 
+
+const NextButtonContainer = styled.div`
+position: fixed;
+bottom: 400px; 
+right: 20px; 
+padding: 40px;
+`;
+
 // Project Component
 
 //Map though projects Array and render cards for each project
@@ -158,8 +166,10 @@ const ProjectsSection = () => {
                 <ProjectCard key={index} {...project} />
               )
           )}
-        </ProjectsContainer>
+          <NextButtonContainer>
         <NextPageButton to = '/skills' />
+        </NextButtonContainer>    
+        </ProjectsContainer>
         <TheButton />
       </ProjectsBackground>
     </Parallax>

@@ -84,16 +84,14 @@ transition: background-color 0.3s ease-in-out;
   transform: translateY(2px); // Pressed effect
 }
 `;
-
+const NextButtonContainer = styled.div`
+position: fixed;
+bottom: 400px; 
+right: 20px; 
+padding: 40px;
+`;
 
 //Skills Componnent
-//Parallax scrolling 
-// Include Containers
-//Include Title
-// Include Para
-// Import SkillsMarquee 
-// Import TheButton
-
 const Skills = () => {
 
     // Add state to track Terminal Open/Close
@@ -127,7 +125,9 @@ const Skills = () => {
                     {isTerminalVisible && 
                       <CliInterface />
                     }
+                    <NextButtonContainer>
                     <NextPageButton to ='/contact'/>
+                    </NextButtonContainer>
                     <TheButton></TheButton>
                 </SkillsContainer>
             </SkillsBackground>

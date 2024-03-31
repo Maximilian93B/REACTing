@@ -5,7 +5,6 @@ import BackgroundImage from '../assets/svg/HeroBGv5.svg';
 import TheButton from './Button';
 import NextPageButton from './NextButton';
 
-// Hero Section Container Styles 
 const HeroContainer = styled.section`
     height: 100vh;
     width: 100vw;
@@ -15,10 +14,9 @@ const HeroContainer = styled.section`
     color: #fff;
     text-align: center;
     position: relative;
-    overflow: hidden;
-    color: black;
-    font-family: 'Press Start 2P', cursive;
-`;
+    overflow: hidden;// Hero Section Container Styles 
+    `;
+
 
 const HeroContent = styled.div`
 height: 100vh;
@@ -26,7 +24,6 @@ width: 100vw;
 display: flex;
 justify-content: center;
 align-items: center;
-color: #fff;
 text-align: center;
 position: relative;
 overflow: hidden;
@@ -86,6 +83,7 @@ padding: 40px;
 `;
 
 const Hero = () => {
+   
     return (
         <Parallax strength={200} bgImage={BackgroundImage} bgImageStyle={{ 
             // Ensures the image covers the available space, centered, and without repeating
@@ -95,19 +93,19 @@ const Hero = () => {
             backgroundPosition: 'center ',
             backgroundRepeat: 'no-repeat',
           }}>
-        <HeroContainer>
+            <HeroContainer>
             <HeroContent>
                 <HeroTitleContainer>
                     <HeroTitle>Ready Player One?</HeroTitle>
                 </HeroTitleContainer>
             </HeroContent>
-        </HeroContainer>
         <NextButtonStyles>
         <NextPageButton to ='/about' />
         </NextButtonStyles>
         <ButtonContainer>
             <TheButton /> {/* Button with Modal Cotent per location */}
             </ButtonContainer>
+            </HeroContainer>
         </Parallax>
     );
 }; 

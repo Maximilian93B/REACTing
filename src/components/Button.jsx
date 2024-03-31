@@ -126,7 +126,7 @@ const TheButton = () => {
   // Returns JSX with Button logic + ModalContent with conditonal 
 return(
     <>
-        <RetroButton onClick={toggleModal}>Power Up</RetroButton>
+        <RetroButton onClick={toggleModal}>Click Me</RetroButton>
       {isOpenModal && (
         <ModalBackground onClick={toggleModal}>
           <ModalContent onClick={(e) => e.stopPropagation()}> {/* Prevent modal from closing when clicked inside */}

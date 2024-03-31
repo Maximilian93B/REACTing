@@ -44,7 +44,7 @@ function NextPageButton({ to }) {
 
 
     return(
-        <NextButton onClick={() => navigate(to)}>Next Level</NextButton>
+        <NextButton onClick={() => navigate(to)}>1-Up</NextButton>
     );
 }
 

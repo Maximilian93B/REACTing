@@ -132,7 +132,7 @@ z-index: 10;
 const CreditsContent = styled.div`
 position: absolute; // Allow this to move within the Credits
 width: 100%;
-animation: ${scrollCredits} 24s linear infinite;
+animation: ${scrollCredits} 23s linear infinite;
 `;
 
 
@@ -176,6 +176,14 @@ const creditData =  [
   "QA Testing: MDBDev",
 ]
 
+
+const NextButtonContainer = styled.div`
+position: absolute;
+bottom: 400px; 
+right: 30px; 
+padding: 40px;
+`;
+
 const Contact = () => {
   // use state to manage  modal visibility 
   const [showModal, setShowModal] = useState(false); // Set to false to initially hide Modal
@@ -189,7 +197,6 @@ const Contact = () => {
     // Return Contact 
     return (
 <Parallax strength={300} bgImage={BackgroundImage} bgImageStyle={{ 
-  // Ensures the image covers the available space, centered, and without repeating
   height: 'auto',
   width: '100vw',
   backgroundSize: 'auto',
@@ -220,7 +227,9 @@ const Contact = () => {
           <SubmitButton type="submit">Send Message</SubmitButton>
       </Form>
       </FormContainer>
+      <NextButtonContainer>
       <NextPageButton to='/' />
+      </NextButtonContainer>
   </ContactContainer>
   </ContactBackground>
   </Parallax>
