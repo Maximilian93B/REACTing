@@ -79,9 +79,15 @@ const HeroTitleContainer = styled.div  `
     align-items: center;
     position: absolute; 
     top:5%; // Position  at the top of the page
-    left: 50%; // Center the container horizontally
+    left: 70%; // Center the container horizontally
     transform: translateX(-50%); // Adjust for horizontal centering
-`;
+
+    @media (max-width: 480px) {
+      font-size: 1.2rem; // Further reduce font size for very small screens
+      left: 50%;
+    }
+
+    `;
 
 const HeroTitle = styled.h1`
     max-width: 600px;
@@ -98,22 +104,25 @@ const HeroTitle = styled.h1`
       }
 `;  
 
-const ButtonContainer = styled.div`
-position: relative;
-display: flex;
-justify-content: center;
-align-items: center;
-padding: 20px;
-top: 5vh; // Original position might be too low for mobile devices
-right: 55%;
-    transform: translateX(-50%);
-    @media (max-width: 768px) {
-        top: 10vh; // Adjust position for tablet
-    }
-    @media (max-width: 480px) {  
-      top: 40vh; // Adjust position for mobile phones
-      left: %
-    }
+const ButtonContainer = styled.div` 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-top: auto; // Pushes the container to the bottom of its parent container
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 600px;
+
+  @media (max-width: 768px) {
+    margin-top: 2rem; // Provide some space from the content above, adjust as needed
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 4rem; // Increase space for smaller screens
+
+  }
 `;
 
 const NextButtonStyles = styled.div`

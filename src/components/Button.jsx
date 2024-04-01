@@ -3,20 +3,18 @@ import styled, { keyframes } from 'styled-components';
 import { useLocation } from 'react-router-dom';
 
 // Retro Button 
-// PS2P Font 
 const RetroButton = styled.button`
-  font-family: 'Press Start 2P', cursive; // Assuming you've imported this font
-  background-color: #e60073; // Vibrant neon color
+  font-family: 'Press Start 2P', cursive;
+  background-color: #e60073; 
   color: #fff;
   border: none;
   cursor: pointer;
   padding: 10px 20px;
-  font-size: 16px; // Adjust size as needed
+  font-size: 16px; 
   text-transform: uppercase;
   outline: none;
-  box-shadow: 0 0 10px #e60073, 0 0 20px #e60073; // Neon glow effect
+  box-shadow: 0 0 10px #e60073, 0 0 20px #e60073; 
   transition: background-color 0.3s ease-in-out;
-
   &:hover {
     background-color: #ff007a; // Slightly lighter shade on hover
   }
@@ -26,13 +24,13 @@ const RetroButton = styled.button`
   }
   @media (max-width: 768px) {
     font-size: 14px; // Slightly smaller font size for tablets
-    padding: 8px 16px; // Adjust padding to fit smaller screens
+    padding: 8px 16px; 
   }
 
   // Media query for mobile devices (devices with width less than 480px)
   @media (max-width: 480px) {
     font-size: 12px; // Smaller font size for mobile devices
-    padding: 6px 12px; // Reduce padding for small screens
+    padding: 6px 12px; 
   }
 `;
 
@@ -54,7 +52,7 @@ const ModalBackground = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; // Set to make sure its on top of all content 
+  z-index: 999; // Set to make sure its on top of all content 
 `;
 
 // Handle styles for content inside Modal 
@@ -63,8 +61,8 @@ width: 400px;
 height: auto; // Let the height adjust based on the content
 background-color: #000; 
 padding: 40px;
-border-radius: 8px; // Or use 0 for a more retro, sharp-edged look
-border: 4px solid #fff; // Optional: pixel-art style border
+border-radius: 8px; 
+border: 4px solid #fff; 
 
 
 // Pixel art style box-shadow, gives a neon-like glow effect
@@ -81,14 +79,14 @@ color: white;
 line-height: 2;
 
 @media (max-width: 768px) {
-  width: 80%; // Use a higher percentage of width for tablet devices
-  padding: 20px; // Reduce padding to save space
+  width: 80%; 
+  padding: 20px; 
 }
 
 @media (max-width: 480px) {
-  width: 95%; // Allow the modal to take up more space on very small screens
-  padding: 10px; // Further reduce padding to maximize space
-  font-size: 0.8rem; // Consider reducing font size if necessary for readability
+  width: 95%; 
+  padding: 10px; 
+  font-size: 0.8rem; 
 }
 
 
@@ -127,7 +125,7 @@ const TheButton = () => {
       
       case '/home':
         console.log(location.pathname);
-        return " This portfolio is a tribute to an era of tech that started it all for me and inspired me to become a developer. To all the Devs past,present and future..The world thanks you";
+        return " This portfolio is a tribute to an era of tech that started it all for me and inspired me to become a developer.";
       
         case '/about':
         return "Hey there! I'm Max. Welcome to my world of full stack development, where every line of code is a step towards creating something awesome. I've got a real knack for turning ideas into digital realities, and guess what? I love doing this in my free time too. So, you can bet that everything here is built with passion, professionalism, and a touch of fun.";
@@ -136,7 +134,7 @@ const TheButton = () => {
         return "There are many ways for someone to display skills they posses..";
       
         case '/contact':
-        return "Content for Contact Page";
+        return "Thanks for stopping by, come back soon as this project is a work in progress.";
 
         case '/projects':
         return "Welcome to the lab , Toggle the buttons and take a look around! Feel free to go off and explore my projects. Im sure there is something there that will catch your eye.";

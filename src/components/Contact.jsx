@@ -159,7 +159,7 @@ z-index: 10;
 const CreditsContent = styled.div`
 position: absolute; // Allow this to move within the Credits
 width: 100%;
-animation: ${scrollCredits} 20s linear infinite;
+animation: ${scrollCredits} 24s linear infinite;
 `;
 
 
@@ -218,15 +218,21 @@ const creditData =  [
 
 
 const NextButtonContainer = styled.div`
-position: absolute;
-bottom: 400px; 
-right: 30px; 
-padding: 40px;
+  bottom: 400px; 
+  right: 30px; 
+  display: flex; 
+  flex-direction: column; // Stack buttons vertically
+  gap: 20px; // Create space between buttons
+
+  @media (max-width: 480px) {
+    margin-bottom: 4rem; // Increase space for smaller screens
+  }   
 `;
 
 
 const Contact = () => {
   // use state to manage  modal visibility 
+  
   const [showModal, setShowModal] = useState(false); // Set to false to initially hide Modal
 
    // useEffect to automatically show modal when page loads 
@@ -236,6 +242,7 @@ const Contact = () => {
     return() => clearTimeout(timer);
    }, [])
     // Return Contact 
+    
     return (
 <Parallax strength={300} bgImage={BackgroundImage} bgImageStyle={{ 
   height: 'auto',
@@ -257,7 +264,7 @@ const Contact = () => {
         </Modal>
   )}
     <ContactBackground>
-    <GameHeader text="Continue?"></GameHeader>
+    <GameHeader text="Game Over"></GameHeader>
     <ContactContainer>
     <FormContainer>
       <Form>
@@ -267,8 +274,8 @@ const Contact = () => {
         <SubmitButton type="submit">Send Message</SubmitButton>
       </Form>
     </FormContainer>
-    <TheButton  /> {/* Button with Modal Cotent per location */}
       <NextButtonContainer>
+      <TheButton  />
         <NextPageButton to='/' />
       </NextButtonContainer>
     </ContactContainer>
