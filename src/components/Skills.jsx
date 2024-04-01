@@ -135,7 +135,7 @@ const Skills = () => {
                      
                     {/* Button to toggle CLI visibility */}
                     <ButtonContainer onClick={toggleTerminal}>
-                    {isTerminalVisible ? 'Hide Terminal' : 'Show Terminal'}
+                    {isTerminalVisible ? 'Close Terminal' : 'Open Terminal'}
                     </ButtonContainer>
                     {/* Conditionally render the CliInterface based on isTerminalVisible */}
                     {isTerminalVisible && 

@@ -64,7 +64,7 @@ width: 100%;
 
 const CommandLineOutput = styled.div`
   margin-bottom: 16px; // Adjust the space between command lines as needed
-  line-height: 1.5;
+  line-height: 1.;
   white-space: pre-wrap; // Allows text to wrap and preserves formatting
   word-break: break-word; // Ensures long words don't overflow
 
