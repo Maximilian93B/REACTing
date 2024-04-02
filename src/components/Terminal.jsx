@@ -3,16 +3,19 @@ import styled from 'styled-components';
 import  {skillsDirectories, welcomeMessage} from '../utils/TerminalData';
 
 const TerminalWindow = styled.div`
-background-color: #000;
-color: #00ff00;
+background-color: #000; 
+color: #00ff00; 
 padding: 20px;
-font-family: 'Press Start 2P', monospace;
-font-size: 12px;
-border: 2px solid #00ff00;
-height: 80%;
-width: 60%;
-margin: auto;
-overflow-y: auto;
+font-family: 'Press Start 2P', monospace; 
+font-size: 16px; 
+border: 2px solid #00ff00; 
+height: 500px; 
+width: 80%; 
+margin: auto; // Center the terminal window
+overflow-y: auto; // Allow vertical scrolling for overflow content
+white-space: pre-wrap; 
+
+
 @media (max-width: 768px) {
     width: 80%; // Increase width for medium devices
     height: auto; // Adjust height based on content
@@ -88,14 +91,23 @@ const CliInterface = () => {
     // Set states 
     const [input,setInput] = useState('');
     const [currentDirectory, setCurrentDirectory] = useState('root');
-    const inputRef = useRef(null);
+    const terminalRef = useRef(null); // Ref for terminal 
+    const inputRef = useRef(null); // Ref for input field
 
     const [history, setHistory] = useState([welcomeMessage])
 
     // Focus on the input field when component mounts 
     useEffect(() => {
-        inputRef.current.focus();
-    }, [history]);
+      // Auto scroll for terminal effect 
+      if(terminalRef.current) {
+        terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
+      }
+      // Auto fucs input field
+    if(inputRef.current){
+      inputRef.current.focus();
+    } 
+    // Include History in array to trigger chnge effect
+  },[history]);
 
         
     //Handle key down events in input field 
@@ -111,92 +123,95 @@ const CliInterface = () => {
 
 
 const processCommand = (command) => {
-    //Hold the response to the users commands
-    let output; 
-    // if command is = to clear 
-    if(command === 'clear') {
-        // Clear the terminal 
-        setHistory([]);
-        return; //
-    } else if(command === 'ls') {
-        // Check and see if we are in root directory
-        if(currentDirectory === 'root') {
-            // List all directories 
-            output = Object.keys(skillsDirectories).join('');
-        } else {
-            // list directories or commands in current directory
-            const directories = skillsDirectories[currentDirectory] ? Object.keys(skillsDirectories[currentDirectory]) : [];
-            output = directories.length > 0 ? directories.join(' ') : 'No directories found';
-        }
-    }   // Navigate to root directory when user inputs 'cd..' 
-            else if(command === 'cd ..') {
-            // Check if current directory is not root
-            if(currentDirectory !== 'root') {
-                // if not root , set directory back to root
-                setCurrentDirectory('root');
-                output = 'Returned to root directory';
-            } else {
-                //  if in root print output 
-                output = 'You are already at the root directory';
-            }
-            // Navigating to a specific directory with  `cd [directory] `
-        } else if (command.startsWith('cd')) {
-            // Extract the directory name from the command 
-            const directory = command.split(' ')[1]; 
-            // Check if the directory exists from current location 
-            if (skillsDirectories[currentDirectory][directory]) {
-                // If the directory exists , update state and set description as output
-                setCurrentDirectory(directory);
-                output = skillsDirectories[currentDirectory][directory].description;
-            } else {
-                // If the directory does not exist , print output 
-                output = `Directory ${directory} not found.`;
-            }
-        } else {
-            // Handle commands 
-            // case = command 
-            // output = command exe
-            switch(command) {
-            case 'help':
-                output = skillsDirectories[currentDirectory].help || 'No additional help available.';
-                    break;
-                    // Add other commands here 
-                    default:
-                    // If unknown comand then print output 
-                    output = `Unknown command: ${command}`;
-            }
-        }
+  //Hold the response to the users commands
+  let output; 
+  
+  // if command is = to clear 
+  if(command === 'clear') {
+  // Clear the terminal 
+  setHistory([]);
+} 
+// If command is 'ls'  list the contents of current directory 
+  else if(command === 'ls') {
+    // Get the contents of the current directory from the skillsDirectories object  ( From terminalData.js ) 
+    const currentDirContents = skillsDirectories.root[currentDirectory];
+      // I ran into issues with nesting so this is the work around for now 
+     // Check if currentDirContents is an object to avoid errors
+    // 
+    if(currentDirContents && typeof currentDirContents === 'object') {
+      // Filter out keys--> description , help, content 
+      const listings = Object.keys(currentDirContents)
+        .filter(key => key !== 'description' && key !== 'help' && key !== 'content') // Exclude special keys
+        .join(' '); // join the Dir names with a space 
+        // If listings are present then display ,if not notify use r
+      output = listings || 'No directories found.';
+  } else {
+    output = 'No directories found.';
+  }
+}
+ // If  command is cd .. navigate back to the root directory
+  else if(command === 'cd ..') {
+      setCurrentDirectory('root');
+      output = 'Returned to root directory';
+  } 
+  // If command starts with cd, try and change the directory 
+  else if (command.startsWith ('cd ')) {
+    // Target the directory from the the command
+    const target = command.split(' ')[1];
+    // Check if target exsits in the skillsDirectories 
+    if(target in skillsDirectories.root) {
+    setCurrentDirectory(target);
 
-        // Update the history state when the command is entered 
-        // This will allow history of commands and outputs to be displayed in the terminal
-        setHistory(prevHistory => [...prevHistory, `> ${command}`, output].filter(Boolean)); // filter(Boolean) removes empty strings if output is empty
-        };
+    const targetDir = skillsDirectories.root[target];
+    output = 'description' in targetDir ? targetDir.description : 'You are now in ' + target;
+    if ('content' in targetDir) {
+        output = targetDir.content;
+    }
+  } else {
+  // If Dir does not exsits, tell user 
+      output = `Directory ${target} not found.`;
+    } 
+} 
+  // If command is help, display help info from skillDirectories
+  else if (command === 'help') {
+    output = skillsDirectories.root[currentDirectory]?.help || skillsDirectories.root.help;
+  } 
+  
+  // If unknown Command 
+  else {
+  output = `unknown command: ${command}`;
+  }
+
+  // Update the history state when the command is entered 
+  // This will allow history of commands and outputs to be displayed in the terminal
+  setHistory(prevHistory => [...prevHistory, `> ${command}`, output].filter(Boolean)); // filter(Boolean) removes empty strings if output is empty
+};
 
 
-    return (
-        <TerminalWindow>
-            {/*Map over history state to display previous commands and output*/}
-            {history.map((line, index) => (
-            <CommandLineOutput key={index}>{line}</CommandLineOutput> 
-        ))}
-            <CommandLine>
-            <Prefix>
-            <Root>root</Root>@MDBdev{'>'}
-            </Prefix> {/* Display a static prefix */}
-                <Input 
-                // Attach ref for focus
-                ref = {inputRef}
-                // Control component with current input  
-                value = {input} 
-                // update input state on change
-                onChange={(e) => setInput(e.target.value)}
-                // Handle Enter Key for exe 
-                onKeyDown = {handleKeyDown} 
-                autoComplete= "off"
-                />
-            </CommandLine>
-        </TerminalWindow>
-    );
+return (
+<TerminalWindow ref= {terminalRef}>
+    {/*Map over history state to display previous commands and output*/}
+    {history.map((line, index) => (
+    <CommandLineOutput key={index}>{line}</CommandLineOutput> 
+))}
+<CommandLine>
+  <Prefix>
+    <Root>root</Root>@MDBdev{'>'}
+  </Prefix> {/* Display a static prefix */}
+    <Input 
+    // Attach ref for focus
+    ref = {inputRef}
+    // Control component with current input  
+    value = {input} 
+    // update input state on change
+    onChange={(e) => setInput(e.target.value)}
+    // Handle Enter Key for exe 
+    onKeyDown = {handleKeyDown} 
+    autoComplete= "off"
+    />
+  </CommandLine>
+</TerminalWindow>
+);
 };
 
 export default CliInterface; 

@@ -125,10 +125,10 @@ const TheButton = () => {
       
       case '/home':
         console.log(location.pathname);
-        return " This portfolio is a tribute to an era of tech that started it all for me and inspired me to become a developer.";
+        return " This portfolio is a tribute to the era of tech that inspired me to become a developer. Enjoy!";
       
         case '/about':
-        return "Hey there! I'm Max. Welcome to my world of full stack development, where every line of code is a step towards creating something awesome. I've got a real knack for turning ideas into digital realities, and guess what? I love doing this in my free time too. So, you can bet that everything here is built with passion, professionalism, and a touch of fun.";
+        return "Hey! I'm Max a full stack developer always striving to create something exciting and engaging. I've got a real knack for turning ideas into digital realities. I love working in small, fast paced teams and excel in high stress situations ( almost a decade of military exprienece will do that). So, you can bet that everything here is built with passion, professionalism, and a touch of fun because you can never forget to smile. ";
 
         case '/skills':
         return "Unlock Skills: The Terminal is Your Key.";
@@ -137,7 +137,7 @@ const TheButton = () => {
         return "Thanks for stopping by, come back soon as this project is a work in progress.";
 
         case '/projects':
-        return "Welcome to the lab , Toggle the buttons and take a look around! Feel free to go off and explore my projects. Im sure there is something there that will catch your eye.";
+        return "Welcome to my lab , Toggle the buttons and take a look around! Feel free to go off and explore my projects.";
       
         default:
         return "Welcome to the portfolio of MDBdev";

@@ -96,7 +96,7 @@ width: 800px;
 height: 600px;
 background: transparent;
 position: absolute; // Use absolute positioning to place the avatar
-right: 300px; // Distance from the right edge of its container
+right: 250px; // Distance from the right edge of its container
 bottom: 140px; // Distance from the top of its container
 animation: ${AvatarSlideEffect} 1s ease-out forwards; // Use the animation
 
