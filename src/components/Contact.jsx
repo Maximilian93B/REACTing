@@ -208,11 +208,10 @@ font-family: 'Press Start 2P', cursive;
 
 // Rolling Credits Data 
 const creditData =  [
-  "I Hope you enjoyed my Portfolio, If you want to collaborate or talk to me about employment opportunities then please fill out the contact form and i will be in touch :).",
+  "I hope you enjoyed my portfolio. If you want to collaborate or talk to me about employment opportunities, please fill out the contact form, and I will be in touch.",
   " Happy Coding!",
   "Lead Developer: MDBDev",
   "UI/UX Design: MDBDev",
-  "Backend Development: MDBDev",
   "QA Testing: MDBDev",
 ]
 

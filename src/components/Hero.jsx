@@ -73,13 +73,12 @@ const flash = keyframes`
 
 const HeroTitleContainer = styled.div  `
     height: 10vh;
-    width: 40vw;
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute; 
     top:5%; // Position  at the top of the page
-    left: 70%; // Center the container horizontally
+    left: 45%; // Center the container horizontally
     transform: translateX(-50%); // Adjust for horizontal centering
 
     @media (max-width: 480px) {
@@ -93,7 +92,7 @@ const HeroTitle = styled.h1`
     max-width: 600px;
     padding: 20px;
     animation: ${flash} 1.5s linear infinite; // apply flash
-    font-size: 2rem;
+    font-size: 3rem;
 
     @media (max-width: 768px) {
         font-size: 1.5rem; // Adjust font size for smaller screens
@@ -109,11 +108,7 @@ const ButtonContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 20px;
-  margin-top: auto; // Pushes the container to the bottom of its parent container
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  max-width: 600px;
+  width: 50%;
 
   @media (max-width: 768px) {
     margin-top: 2rem; // Provide some space from the content above, adjust as needed
@@ -126,11 +121,11 @@ const ButtonContainer = styled.div`
 `;
 
 const NextButtonStyles = styled.div`
-position: fixed;
-bottom: 400px; 
-right: 20px; 
-padding: 10px;
-
+display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 50%;
 @media (max-width: 768px) {
     bottom: 8vh; // Adjust for smaller screens
   }
@@ -142,32 +137,30 @@ padding: 10px;
 
 const Hero = () => {
    
-    return (
-        <Parallax strength={200} bgImage={BackgroundImage} bgImageStyle={{ 
-            // Ensures the image covers the available space, centered, and without repeating
-            width: '100vw',
-            height: 'auto',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center ',
-            backgroundRepeat: 'no-repeat',
-          }}>
-            <Section>
-            <HeroContainer>
-            <HeroContent>
-                <HeroTitleContainer>
-                    <HeroTitle>Ready Player One?</HeroTitle>
-                </HeroTitleContainer>
-            </HeroContent>
-        <NextButtonStyles>
-        <NextPageButton to ='/about' />
-        </NextButtonStyles>
-        <ButtonContainer>
-            <TheButton /> {/* Button with Modal Cotent per location */}
-            </ButtonContainer>
-            </HeroContainer>
-            </Section>
-        </Parallax>
-    );
+return (
+<Parallax strength={200} bgImage={BackgroundImage} bgImageStyle={{ 
+  // Ensures the image covers the available space, centered, and without repeating
+  width: '100vw',
+  height: 'auto',
+  backgroundSize: 'cover',
+  backgroundPosition: 'center ',
+  backgroundRepeat: 'no-repeat',
+}}>
+  <Section>
+    <HeroContainer>
+      <HeroContent>
+          <HeroTitleContainer>
+              <HeroTitle>Ready Player One?</HeroTitle>
+          </HeroTitleContainer>
+      </HeroContent>
+      <NextPageButton to ='/about' />
+      <ButtonContainer>
+      <TheButton /> {/* Button with Modal Cotent per location */}
+     </ButtonContainer>
+    </HeroContainer>
+  </Section>
+</Parallax>
+);
 }; 
 
 export default Hero; 

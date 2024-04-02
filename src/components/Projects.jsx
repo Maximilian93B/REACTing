@@ -102,7 +102,7 @@ const projects = [
     
     {
         title: "NerdHerdHR",
-        description: "NerdHerdHR is a all in one Human Resources tool all in your CLI .",
+        description: "NerdHerdHR is a all in one Back end Human Resources tool.",
         imageUrl: ProjectImage2,
         projectUrl: "https://github.com/Maximilian93B/NerdHerdHR",
        
