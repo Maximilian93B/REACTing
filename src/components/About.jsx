@@ -18,7 +18,6 @@ import NextPageButton from './NextButton';
  background-image: url(${BackgroundImage});
  background-size: cover;
  background-position: center;
-
 `;
 
 const ContentContainer = styled.div`
