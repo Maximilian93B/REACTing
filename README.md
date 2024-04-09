@@ -1,4 +1,5 @@
-# BookWormGQL : A Book Search Engine 
+# REACTING : A Trip back to 90s pixels and video game nostalgia.
+ 
 
 ##
 ![Reacting](./src/assets/svg/ReactAvatar.svg)
