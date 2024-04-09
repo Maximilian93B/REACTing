@@ -1,7 +1,8 @@
 # REACTING : A Trip back to 90s pixels and video game nostalgia.
- 
+
 
 ##
+
 ![Reacting](./src/assets/svg/ReactAvatar.svg)
 #
 
@@ -14,7 +15,7 @@
 
 
 ## Description
-Reacting is a front-end React project inspired by my childhood. With is 90s pixel art theme it really captures what it was like to surf the web in an ara of pixelated vibrant colors and graphics. 
+Reacting is a front-end React project inspired by my childhood. With a 90s pixel art theme it really captures what it was like to surf the web in an era of pixelated vibrant colors and graphics. 
 
 ## Built With
 **React**
