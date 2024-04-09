@@ -1,8 +1,51 @@
-# React + Vite
+# BookWormGQL : A Book Search Engine 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+##
+![Reacting](./src/assets/svg/ReactAvatar.svg)
+#
 
-Currently, two official plugins are available:
+## Table of Contents
+- [Description](#description)
+- [Built With](#built-with)
+- [Features](#features)
+- [Contact](#contact)
+- [License](#license)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Description
+Reacting is a front-end React project inspired by my childhood. With is 90s pixel art theme it really captures what it was like to surf the web in an ara of pixelated vibrant colors and graphics. 
+
+## Built With
+**React**
+
+## Features
+
+**90s pixel art theme**
+
+- ** This project has a unique theme that captures the web enviroment of the 90s. 
+
+- **Interactice Built in CLI** This app containts a fully functioning CLI that allows users to naviagte through a driectories of skills and react tutorials.
+
+**SPA** 
+
+- Reacting is a SPA ( Singe Page Applicaton) this allows the users to flow through the project with pesky redirects to new browser windows. 
+
+**** 
+*User-Friendly Design:* 
+
+ - This application has very unique and responsive UI with buttons and CTA that will prove the user to explore. 
+
+- *Responsive Layout:* Designed with responsiveness in mind, the app ensures a consistent and enjoyable experience across different devices and screen sizes.
+
+## Contact
+
+- GitHub: [Maximilian93B](https://github.com/Maximilian93B)
+- Email: [max.md.bosch@gmail.com](mailto:max.md.bosch@gmail.com)
+
+## License
+This project is licensed under the MIT license.
+
+## Notes
+Thanks for taking the time to view this project.
+
+Happy Coding !!
