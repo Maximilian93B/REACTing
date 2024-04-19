@@ -1,9 +1,9 @@
 # REACTING : A Trip back to 90s pixels and video game nostalgia.
 
 
-##
+##![Reacting](./src/assets/READMEpic.png)
 
-![Reacting](./src/assets/svg/ReactAvatar.svg)
+
 #
 
 ## Table of Contents
@@ -21,7 +21,8 @@ Reacting is a front-end React project inspired by my childhood. With a 90s pixel
 **React**
 
 
-##![Reacting](./src/assets/READMEpic.png)
+
+![Reacting](./src/assets/svg/ReactAvatar.svg)
 
 
 
