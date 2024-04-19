@@ -20,6 +20,12 @@ Reacting is a front-end React project inspired by my childhood. With a 90s pixel
 ## Built With
 **React**
 
+
+##![Reacting](./src/assets/READMEpic.png)
+
+
+
+
 ## Features
 
 **90s pixel art theme**
